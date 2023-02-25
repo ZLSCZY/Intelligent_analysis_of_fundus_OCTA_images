@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tabib Apps web | Admin Dashboard Template</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png">
+    <!-- Base Styling  -->
+    <link rel="stylesheet" href="../assets/main/css/fonts.css">
+    <link rel="stylesheet" href="../assets/main/css/style.css">
+</head>
+
+<body>
+    <div id="main-wrapper" class="show">
+
+
+        <!-- start logo components 开始的名字与logo -->
+        <div class="nav-header">
+            <div class="brand-logo">
+                <a href="index.html"> <img class="logo-tabib" src="../assets/images/logo3.png" alt=""></a>
+                <a href="index.html"><img class="brand-title" src="assets/images/logo4png" alt=""></a>
+            </div>
+        </div>
+        <!-- End logo components -->
+
+
+        <!-- start section sidebar -->
+        <aside class="left-panel nicescroll-box">
+            <nav class="navigation">
+                <ul class="list-unstyled main-menu">
+                    <li class="has-submenu active">
+                        <a href="index.html">
+                            <i class="fas fa-th-large"></i>
+                            <span class="nav-label">医生首页</span>
+                        </a>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="#" class="has-arrow mm-collapsed">
+                            <i class="fas fa-users"></i>
+                            <span class="nav-label">患者情况</span>
+                        </a>
+                        <ul class="list-unstyled mm-collapse">
+                            <li><a href="new-patient.html">新增患者</a></li>
+                            <li><a href="all-patients.html">所有患者</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="has-submenu active">
+                        <a href="#" >
+                            <i class="fas fa-cog"></i>
+                            <span class="nav-label">帮助</span>
+                        </a>
+
+                    </li>
+
+                </ul>
+            </nav>
+            <div class="sidebar-widgets">
+                <div class="top-sidebar box-shadow mx-25 m-b-30 p-b-20 text-center">
+                    <a href="rapid-diagnosis.html"> <!--应该是快速诊断的网页url-->
+                        <img src="../assets/images/appointement.svg" class="side-img" alt="img">
+                    </a>
+                    <a href="rapid-diagnosis.html">
+                        <h4 class="text-primary mb-0">快速诊断</h4>
+                    </a>
+                </div>
+                <div class="copyright text-center">
+                    <p class="mb-0"> 首页</p>
+                    <p class="mb-0"> © 2023 </p>
+                </div>
+            </div>
+        </aside>
+        <!-- End section sidebar -->
+
+
+        <!-- start section header -->
+        <div class="header">
+            <header class="top-head container-fluid">
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="line"></span><span class="line"></span><span class="line"></span>
+                    </div>
+                    <div class="left-header content-header__menu">
+                        <ul class="list-unstyled">
+                            <li class="nav-link btn">
+                                <a href="rapid-diagnosis.html"><i class="far fa-eye"></i> <span> 快速诊断</span></a>
+                            </li>
+                            <li class="nav-link btn">
+                                <a href="new-patient.html"><i class="far fa-file-alt"></i> <span> 新增患者</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="fullscreen notification_dropdown">
+                        <div class="full">
+                            <a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()">
+                                <i class="fas fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="my-account-wrapper">
+                        <div class="account-wrapper">
+                            <div class="account-control">
+                                <a class="login header-profile" href="#" title="Sign in">
+                                    <div class="header-info">
+                                        <span>Roberts医生</span>
+                                        <small>账户</small>
+                                    </div>
+                                    <img src="../assets/images/client.jpg" alt="people">
+                                </a>
+                                <div class="account-dropdown-form dropdown-container">
+                                    <div class="form-content">
+                                        <a href="doctor-settings.html">
+                                            <i class="far fa-user"></i>
+                                            <span class="ml-2">简介</span>
+                                        </a>
+                                        <!--
+                                        <a href="#">
+                                            <i class="far fa-envelope"></i>
+                                            <span class="ml-2">Inbox</span>
+                                        </a>
+                                        -->
+                                        <a href="page-login.html">
+                                            <i class="fas fa-sign-in-alt"></i>
+                                            <span class="ml-2">退出 </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <!-- End section header -->
+
+
+        <!-- start section content -->
+        <div class="content-body">
+            <div class="warper container-fluid">
+                <div class="new-patients main_container">
+                    <div class="row page-titles mx-0">
+                        <div class="col-sm-6 p-md-0">
+                            <div class="welcome-text">
+                                <h4 class="text-primary">新增病人</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active"><a href="/new-patient.html">New Patient</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">新增病人信息</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="basic-form">
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-xl-4">
+                                                    <div class="form-group row widget-3">
+                                                        <div class="col-lg-10">
+                                                            <div class="form-input">
+                                                                <label class="labeltest" for="file-ip-1">
+                                                                    <span> 点击上传文件（或拖拽文件至此） </span>
+                                                                </label>
+                                                                <input type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
+                                                                <div class="preview">
+                                                                    <img id="file-ip-1-preview" src="#" alt="img">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="姓">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="名">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="email" class="form-control" placeholder="邮件">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" placeholder="手机号">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" placeholder="出生年月">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <select class="form-control form-select">
+                                                            <option> 婚姻状态 </option>
+                                                            <option>已婚</option>
+                                                            <option>未婚</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <select class="form-control form-select">
+                                                            <option>性别</option>
+                                                            <option>男</option>
+                                                            <option>女</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <select class="form-control form-select">
+                                                            <option>血型</option>
+                                                            <option>A+</option>
+                                                            <option>A-</option>
+                                                            <option>B+</option>
+                                                            <option>B-</option>
+                                                            <option>O+</option>
+                                                            <option>O-</option>
+                                                            <option>AB+</option>
+                                                            <option>AB-</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xl-4"></div>
+                                                <div class="col-xl-4">
+                                                    <div class="form-group row">
+                                                        <div class="col-lg-12">
+                                                            <input type="text" class="form-control" placeholder="体重">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <div class="form-group row">
+                                                        <div class="col-lg-12">
+                                                            <input type="text" class="form-control" placeholder="身高">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xl-4">
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" placeholder="地址" rows="4"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-8">
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" placeholder="过往病史" rows="4"></textarea>
+                                                    </div>
+                                                    <div class="form-group text-right">
+                                                        <button type="submit" class="btn btn-primary float-end">保存</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- End section content -->
+
+
+        <!-- start section footer -->
+        <div class="footer">
+            <div class="copyright">
+                <p class="mb-0">Copyright © Designed &amp; Developed by <a href="uxign.com" target="_blank">Uxign</a> 2021
+                </p>
+            </div>
+        </div>
+        <!-- End section footer -->
+
+
+    </div>
+
+
+    <!-- JQuery v3.5.1 -->
+    <script src="../assets/plugins/jquery/jquery.min.js"></script>
+
+    <!-- popper js -->
+    <script src="../assets/plugins/popper/popper.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Moment -->
+    <script src="../assets/plugins/moment/moment.min.js"></script>
+
+    <!-- Date Range Picker -->
+    <script src="../assets/plugins/daterangepicker/daterangepicker.min.js"></script>
+
+    <!-- Datatable -->
+    <script src="../assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/init-tdatatable.js"></script>
+
+    <!-- Main Custom JQuery -->
+    <script src="../assets/js/toggleFullScreen.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>

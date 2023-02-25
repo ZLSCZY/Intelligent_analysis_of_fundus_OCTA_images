@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tabib Apps web | Admin Dashboard Template</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png">
+    <!-- Base Styling  -->
+    <link rel="stylesheet" href="../assets/main/css/fonts.css">
+    <link rel="stylesheet" href="../assets/main/css/style.css">
+</head>
+
+<body>
+    <div id="main-wrapper" class="show">
+
+        <!-- start logo components -->
+        <div class="nav-header">
+            <div class="brand-logo">
+                <a href="index.html"> <img class="logo-tabib" src="../assets/images/download.png" alt=""></a>
+                <a href="index.html"><img class="brand-title" src="../assets/images/logo.png" alt=""></a>
+            </div>
+        </div>
+        <!-- End logo components -->
+
+
+        <!-- start section sidebar -->
+        <aside class="left-panel nicescroll-box">
+            <nav class="navigation">
+                <ul class="list-unstyled main-menu">
+                    <li class="has-submenu">
+                        <a href="index.html">
+                            <i class="fas fa-th-large"></i>
+                            <span class="nav-label">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" class="has-arrow mm-collapsed">
+                            <i class="fas fa-user-md"></i>
+                            <span class="nav-label">Doctors</span>
+                        </a>
+                        <ul class="list-unstyled mm-collapse">
+                            <li><a href="add-doctor.html">Add Doctor</a></li>
+                            <li><a href="doctor-list.html">All Doctors</a></li>
+                            <li> <a href="doctor-profile.html">Doctors Profile</a> </li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" class="has-arrow mm-collapsed">
+                            <i class="fas fa-users"></i>
+                            <span class="nav-label">Patients</span>
+                        </a>
+                        <ul class="list-unstyled mm-collapse">
+                            <li><a href="new-patient.html">New Patient</a></li>
+                            <li><a href="all-patients.html">All Patients</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu active">
+                        <a href="new-appointment.html">
+                            <i class="fas fa-calendar-plus"></i>
+                            <span class="nav-label">Appointment</span>
+                        </a>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" class="has-arrow mm-collapsed">
+                            <i class="fas fa-book-medical"></i>
+                            <span class="nav-label">Prescriptions</span>
+                        </a>
+                        <ul class="list-unstyled mm-collapse">
+                            <li><a href="new-prescription.html">New Prescription</a></li>
+                            <li><a href="all-prescriptions.html">All Prescriptions</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="add-drug.html">
+                            <i class="fas fa-pills"></i>
+                            <span class="nav-label">Add Drug</span>
+                        </a>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" class="has-arrow mm-collapsed">
+                            <i class="fas fa-heartbeat"></i>
+                            <span class="nav-label">Tests</span>
+                        </a>
+                        <ul class="list-unstyled mm-collapse">
+                            <li><a href="add-test.html">Add Test</a></li>
+                            <li><a href="all-tests.html">All Tests</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="calendar.html">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span class="nav-label">calendar</span>
+                        </a>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="reports.html">
+                            <i class="fas fa-chart-pie"></i>
+                            <span class="nav-label">Reports</span>
+                        </a>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" class="has-arrow mm-collapsed">
+                            <i class="fas fa-file-invoice"></i>
+                            <span class="nav-label">Billing</span>
+                        </a>
+                        <ul class="list-unstyled mm-collapse">
+                            <li><a href="create-invoice.html">Create Invoice</a></li>
+                            <li><a href="billing-list.html">Billing List</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" class="has-arrow mm-collapsed">
+                            <i class="fas fa-cog"></i>
+                            <span class="nav-label">Settings</span>
+                        </a>
+                        <ul class="list-unstyled mm-collapse">
+                            <li><a href="doctor-settings.html">Doctor Settings</a></li>
+                            <li><a href="prescription-settings.html">Prescription Settings</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" class="has-arrow mm-collapsed">
+                            <i class="fa fa-tag"></i>
+                            <span class="nav-label">Authentication</span>
+                        </a>
+                        <ul class="list-unstyled mm-collapse">
+                            <li><a href="empty-page.html">Empty Page</a></li>
+                            <li><a href="page-login.html">Login simple</a></li>
+                            <li><a href="page-login-one.html">Login with Bg Image</a></li>
+                            <li><a href="page-register.html">Register simple</a></li>
+                            <li><a href="page-register-one.html">Register with Bg Image</a></li>
+                            <li><a href="page-lock-screen.html">Lock Screen</a></li>
+                            <li><a href="page-forgot-password.html">Page forgot password</a></li>
+                            <li><a href="page-error-404.html">Error 404</a></li>
+                            <li><a href="page-error-500.html">Error 500</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-widgets">
+                <div class="top-sidebar box-shadow mx-25 m-b-30 p-b-20 text-center">
+                    <a href="new-appointment.html">
+                        <img src="../assets/images/appointement.svg" class="side-img" alt="img">
+                    </a>
+                    <a href="#">
+                        <h4 class="text-primary mb-0">Make an Appointments</h4>
+                    </a>
+                </div>
+                <div class="copyright text-center">
+                    <p class="mb-0"> Tabib Dashboard</p>
+                    <p class="mb-0"> © 2021 </p>
+                </div>
+            </div>
+        </aside>
+        <!-- End section sidebar -->
+
+
+        <!-- start section header -->
+        <div class="header">
+            <header class="top-head container-fluid">
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="line"></span><span class="line"></span><span class="line"></span>
+                    </div>
+                    <div class="left-header content-header__menu">
+                        <ul class="list-unstyled">
+                            <li class="nav-link btn">
+                                <a href="#"><i class="far fa-calendar-check"></i> <span> Make an appointment</span></a>
+                            </li>
+                            <li class="nav-link btn">
+                                <a href="#"><i class="far fa-file-alt"></i> <span> Write a prescription</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="fullscreen notification_dropdown">
+                        <div class="full">
+                            <a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()">
+                                <i class="fas fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="notification_dropdown">
+                        <div class="cart-wrapper">
+                            <div class="cart-icon">
+                                <a class="cart-control" href="#">
+                                    <i class="fas fa-bell"></i>
+                                    <div class="pulse-css"></div>
+                                </a>
+                            </div>
+                            <div class="cart-dropdown-form dropdown-container">
+                                <div class="form-content">
+                                    <div class="widget-media main-scroll nicescroll-box">
+                                        <ul class="timeline">
+                                            <li>
+                                                <h6 class="mb-0">Notitications</h6>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-panel">
+                                                    <div class="media mr-2">
+                                                        <img alt="image" src="../assets/images/avtar/1.jpg">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h6 class="mb-1 ">Incoming Message</h6>
+                                                        <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-panel">
+                                                    <div class="media mr-2 media-info">
+                                                        <img alt="image" src="../assets/images/avtar/1.jpg">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h6 class="mb-1">You got a new email</h6>
+                                                        <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-panel">
+                                                    <div class="media mr-2 media-success">
+                                                        <img alt="image" src="../assets/images/avtar/1.jpg">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h6 class="mb-1">Hello world!</h6>
+                                                        <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-panel">
+                                                    <div class="media mr-2">
+                                                        <img alt="image" src="../assets/images/avtar/1.jpg">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h6 class="mb-1">Beep Boop. Beee...</h6>
+                                                        <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-panel">
+                                                    <div class="media mr-2 media-danger">
+                                                        <img alt="image" src="../assets/images/avtar/1.jpg">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h6 class="mb-1">Hello world!</h6>
+                                                        <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-panel">
+                                                    <div class="media mr-2 media-primary">
+                                                        <img alt="image" src="../assets/images/avtar/1.jpg">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h6 class="mb-1">Incoming Message</h6>
+                                                        <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a class="all-notification btn btn-primary" href="#">
+                                        See all notifications
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-account-wrapper">
+                        <div class="account-wrapper">
+                            <div class="account-control">
+                                <a class="login header-profile" href="#" title="Sign in">
+                                    <div class="header-info">
+                                        <span>Dr Roberts</span>
+                                        <small>Admin</small>
+                                    </div>
+                                    <img src="../assets/images/client.jpg" alt="people">
+                                </a>
+                                <div class="account-dropdown-form dropdown-container">
+                                    <div class="form-content">
+                                        <a href="doctor-settings.html">
+                                            <i class="far fa-user"></i>
+                                            <span class="ml-2">Profile</span>
+                                        </a>
+                                        <a href="#">
+                                            <i class="far fa-envelope"></i>
+                                            <span class="ml-2">Inbox</span>
+                                        </a>
+                                        <a href="page-login.html">
+                                            <i class="fas fa-sign-in-alt"></i>
+                                            <span class="ml-2">Logout </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <!-- End section header -->
+
+
+        <!-- start section content -->
+        <div class="content-body">
+            <div class="warper container-fluid">
+                <div class="new_appointment main_container">
+                    <div class="row page-titles mx-0">
+                        <div class="col-sm-6 p-md-0">
+                            <div class="welcome-text">
+                                <h4 class="text-primary">New Appointment</h4>
+                                <p class="mb-0">Add New Appointment</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active"><a href="/new-appointment.html">New Appointment</a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card shadow">
+                                <div class="card-header">
+                                    <div class="row m-rl w-100">
+                                        <div class="col-lg-3 col-sm-12">
+                                            <div class="form-group">
+                                                <input id="myInputTextField" class="form-control" type="search" placeholder="Search by patient's name or phone number" aria-label="Search">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <div class="form-group">
+                                                <select class="form-control table-filter-select form-select">
+                                                    <option>Search by city</option>
+                                                    <option>Rabat</option>
+                                                    <option>Casablanca</option>
+                                                    <option>Fes</option>
+                                                    <option>Oujda</option>
+                                                    <option>Marakesh</option>
+                                                    <option>Berrechid</option>
+                                                    <option>Lexington</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <div class="form-group">
+                                                <input id="daterange" class="form-control input-daterange-datepicker">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-12">
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-primary w-100 h-56" data-bs-toggle="modal" data-bs-target="#newAppointment">New
+                                                    appointment</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card shadow">
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table id="example3" class="display nowrap">
+                                            <thead>
+                                                <tr>
+                                                    <th>Time</th>
+                                                    <th>Date</th>
+                                                    <th>Patient</th>
+                                                    <th>Address</th>
+                                                    <th>Phone</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        07:00
+                                                    </td>
+                                                    <td>01 Jun 2021</td>
+                                                    <td> Michael R Sheets </td>
+                                                    <td> 1468 Selah Way - Rabat</td>
+                                                    <td>833 - 844 - 0100</td>
+                                                    <td class="text-start">
+                                                        <span class="badge badge-primary">Start appt</span>
+                                                    </td>
+                                                    <td>
+                                                        <a class='mr-4 vue' data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                                            <span class='fas fa-user' aria-hidden='true'></span>
+                                                        </a>
+                                                        <a class='edit' data-bs-toggle='modal' data-bs-target='#changeTimeAndDate'>
+                                                            <span class='fas fa-pencil-alt'></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        07:30
+                                                    </td>
+                                                    <td>02 Jun 2021</td>
+                                                    <td> Eric J Lane</td>
+                                                    <td>1468 Selah Way - Agadir</td>
+                                                    <td>833 - 844 - 0100</td>
+                                                    <td class="text-start"> <span class="badge badge-primary">Start
+                                                            appt</span>
+                                                    </td>
+                                                    <td>
+                                                        <a class='mr-4 vue' data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                                            <span class='fas fa-user' aria-hidden='true'></span>
+                                                        </a>
+                                                        <a class='edit' data-bs-toggle='modal' data-bs-target='#changeTimeAndDate'>
+                                                            <span class='fas fa-pencil-alt'></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        08:00
+                                                    </td>
+                                                    <td>03 Jun 2021</td>
+                                                    <td> Pamela R Matheney </td>
+                                                    <td>1468 Selah Way - Casablanca</td>
+                                                    <td>833 - 844 - 0100</td>
+                                                    <td class="text-start"> <span class="badge badge-primary">Start
+                                                            appt</span>
+                                                    </td>
+                                                    <td>
+                                                        <a class='mr-4 vue' data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                                            <span class='fas fa-user' aria-hidden='true'></span>
+                                                        </a>
+                                                        <a class='edit' data-bs-toggle='modal' data-bs-target='#changeTimeAndDate'>
+                                                            <span class='fas fa-pencil-alt'></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        08:30
+                                                    </td>
+                                                    <td>04 Jun 2021</td>
+                                                    <td> Chelsea S Coy
+                                                    </td>
+                                                    <td>1468 Selah Way - Fes </td>
+                                                    <td>833 - 844 - 0100</td>
+                                                    <td class="text-start"> <span class="badge btn-danger">Canclled</span>
+                                                    </td>
+                                                    <td>
+                                                        <a class='mr-4 vue' data-toggle="modal" data-target="#exampleModalCenter">
+                                                            <span class='fas fa-user' aria-hidden='true'></span>
+                                                        </a>
+                                                        <a class='edit' data-toggle='modal' data-target='#changeTimeAndDate'>
+                                                            <span class='fas fa-pencil-alt'></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        09:00
+                                                    </td>
+                                                    <td>05 Jun 2021</td>
+                                                    <td> Michael R Sheets
+                                                    </td>
+                                                    <td> 1468 Selah Way - Oujda</td>
+                                                    <td>833 - 844 - 0100</td>
+                                                    <td class="text-start"> <span class="badge badge-primary">Start
+                                                            appt</span>
+                                                    </td>
+                                                    <td>
+                                                        <a class='mr-4 vue' data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                                            <span class='fas fa-user' aria-hidden='true'></span>
+                                                        </a>
+                                                        <a class='edit' data-bs-toggle='modal' data-bs-target='#changeTimeAndDate'>
+                                                            <span class='fas fa-pencil-alt'></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        09:30
+                                                    </td>
+                                                    <td>06 Jun 2021</td>
+                                                    <td>Eric J Lane</td>
+                                                    <td>1468 Selah Way - Marakesh</td>
+                                                    <td>833 - 844 - 0100</td>
+                                                    <td class="text-start"> <span class="badge badge-primary">Start
+                                                            appt</span>
+                                                    </td>
+                                                    <td>
+                                                        <a class='mr-4 vue' data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                                            <span class='fas fa-user' aria-hidden='true'></span>
+                                                        </a>
+                                                        <a class='edit' data-bs-toggle='modal' data-bs-target='#changeTimeAndDate'>
+                                                            <span class='fas fa-pencil-alt'></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 10:00 </td>
+                                                    <td>07 Jun 2021</td>
+                                                    <td> Pamela R Matheney </td>
+                                                    <td>1468 Selah Way - Lexington</td>
+                                                    <td>833 - 844 - 0100</td>
+                                                    <td class="text-start"> <span class="badge badge-primary">Start
+                                                            appt</span>
+                                                    </td>
+                                                    <td>
+                                                        <a class='mr-4 vue' data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                                            <span class='fas fa-user' aria-hidden='true'></span>
+                                                        </a>
+                                                        <a class='edit' data-bs-toggle='modal' data-bs-target='#changeTimeAndDate'>
+                                                            <span class='fas fa-pencil-alt'></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 10:30 </td>
+                                                    <td>08 Jun 2021</td>
+                                                    <td> Chelsea S Coy </td>
+                                                    <td>1468 Selah Way - Bakersfield </td>
+                                                    <td>833 - 844 - 0100</td>
+                                                    <td class="text-start"> <span class="badge btn-danger">Canclled</span>
+                                                    </td>
+                                                    <td>
+                                                        <a class='mr-4 vue' data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                                            <span class='fas fa-user' aria-hidden='true'></span>
+                                                        </a>
+                                                        <a class='edit' data-bs-toggle='modal' data-bs-target='#changeTimeAndDate'>
+                                                            <span class='fas fa-pencil-alt'></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 11:00 </td>
+                                                    <td>09 Jun 2021</td>
+                                                    <td> Michael R Sheets </td>
+                                                    <td> 1468 Selah Way - Brattleboro</td>
+                                                    <td>833 - 844 - 0100</td>
+                                                    <td class="text-start"> <span class="badge badge-primary">Start
+                                                            appt</span>
+                                                    </td>
+                                                    <td>
+                                                        <a class='mr-4 vue' data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                                            <span class='fas fa-user' aria-hidden='true'></span>
+                                                        </a>
+                                                        <a class='edit' data-bs-toggle='modal' data-bs-target='#changeTimeAndDate'>
+                                                            <span class='fas fa-pencil-alt'></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 11:30 </td>
+                                                    <td>10 Jun 2021</td>
+                                                    <td> Eric J Lane</td>
+                                                    <td>1468 Selah Way - Laayoune</td>
+                                                    <td>833 - 844 - 0100</td>
+                                                    <td class="text-start"> <span class="badge badge-primary">Start
+                                                            appt</span>
+                                                    </td>
+                                                    <td>
+                                                        <a class='mr-4 vue' data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                                            <span class='fas fa-user' aria-hidden='true'></span>
+                                                        </a>
+                                                        <a class='edit' data-bs-toggle='modal' data-bs-target='#changeTimeAndDate'>
+                                                            <span class='fas fa-pencil-alt'></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 09:00 </td>
+                                                    <td>11 Jun 2021</td>
+                                                    <td> Pamela R Matheney </td>
+                                                    <td>2320 May Street - Lexington</td>
+                                                    <td>833 - 844 - 0100</td>
+                                                    <td class="text-start"> <span class="badge badge-primary">Start
+                                                            appt</span>
+                                                    </td>
+                                                    <td>
+                                                        <a class='mr-4 vue' data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                                            <span class='fas fa-user' aria-hidden='true'></span>
+                                                        </a>
+                                                        <a class='edit' data-bs-toggle='modal' data-bs-target='#changeTimeAndDate'>
+                                                            <span class='fas fa-pencil-alt'></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> 09:00 </td>
+                                                    <td>12 Jun 2021</td>
+                                                    <td> Chelsea S Coy </td>
+                                                    <td>3342 Lowndes Hill - Berrechid </td>
+                                                    <td>833 - 844 - 0100</td>
+                                                    <td class="text-start"> <span class="badge btn-danger">Canclled</span>
+                                                    </td>
+                                                    <td>
+                                                        <a class='mr-4 vue' data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                                            <span class='fas fa-user' aria-hidden='true'></span>
+                                                        </a>
+                                                        <a class='edit' data-bs-toggle='modal' data-bs-target='#changeTimeAndDate'>
+                                                            <span class='fas fa-pencil-alt'></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End section content -->
+
+
+        <!-- start section footer -->
+        <div class="footer">
+            <div class="copyright">
+                <p class="mb-0">Copyright © Designed &amp; Developed by <a href="uxign.com" target="_blank">Uxign</a> 2021
+                </p>
+            </div>
+        </div>
+        <!-- End section footer -->
+
+
+        <!-- Modal  -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="modal-title-head-modal" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-title-head-modal">Michael R Sheets</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"> <span
+                                aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Motif Patient</h5>
+                        <p>Caregivers can be spouses, family members, friends, or even a close neighbor. As a caregiver, you are an integral part of the team. Moffitt is based on the core concept of Patient and Family-Centered Care which in short is a partnership
+                            between you, the patient and the medical treatment team. As part of the team, you will help coordinate the patient’s care. That said, you must also make sure you are taking care of yourself.
+                        </p>
+                        <hr>
+                        <form>
+                            <div class="form-group">
+                                <label>Review doctors</label>
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn badge-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="changeTimeAndDate" tabindex="-1" role="dialog" aria-labelledby="modal-title-edit-modal">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-title-edit-modal"><img class="rounded-circle" width="35" src="../assets/images/patients/user1.jpg" alt=""> Michael R Sheets
+                        </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row align-items-start">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" value="06/17/2021">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <select class="form-control form-select">
+                                        <option> 07:00 - 07:30</option>
+                                        <option> 07:30 - 08:00</option>
+                                        <option> 08:00 - 08:30</option>
+                                        <option> 08:30 - 09:00</option>
+                                        <option> 09:00 - 09:30</option>
+                                        <option> 09:30 - 10:00</option>
+                                        <option> 10:00 - 10:30</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn badge-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade selectRefresh" id="newAppointment" tabindex="-1" aria-labelledby="exampleModalLabelOne">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabelOne"> New appointment </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row align-items-start">
+                            <div class="col form-group">
+                                <input class="form-control" type="text" value="06/17/2021">
+                            </div>
+                            <div class="col form-group">
+                                <select class="form-control form-select">
+                                    <option> 07:00 - 07:30</option>
+                                    <option> 07:30 - 08:00</option>
+                                    <option> 08:00 - 08:30</option>
+                                    <option> 08:30 - 09:00</option>
+                                    <option> 09:00 - 09:30</option>
+                                    <option> 09:30 - 10:00</option>
+                                    <option> 10:00 - 10:30</option>
+                                </select>
+                            </div>
+                            <div class="col form-group">
+                                <select class="form-control form-select">
+                                    <option>Select Patient...</option>
+                                    <option>Airi Satou</option>
+                                    <option>Angelica Ramos</option>
+                                    <option>Ashton Cox</option>
+                                    <option>Bradley Greer</option>
+                                    <option>Brenden</option>
+                                    <option>Ashton Cox</option>
+                                </select>
+                            </div>
+                            <br>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label>Motif Patient</label>
+                                    <textarea class="form-control" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn badge-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal  -->
+
+    </div>
+
+
+    <!-- JQuery v3.5.1 -->
+    <script src="../assets/plugins/jquery/jquery.min.js"></script>
+
+    <!-- popper js -->
+    <script src="../assets/plugins/popper/popper.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Moment -->
+    <script src="../assets/plugins/moment/moment.min.js"></script>
+
+    <!-- Date Range Picker -->
+    <script src="../assets/plugins/daterangepicker/daterangepicker.min.js"></script>
+
+    <!-- Datatable -->
+    <script src="../assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/init-tdatatable.js"></script>
+
+    <!-- Main Custom JQuery -->
+    <script src="../assets/js/toggleFullScreen.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
