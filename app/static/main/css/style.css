@@ -2766,7 +2766,7 @@ Content Area (right)
 /*****************************
 Authentification
 *****************************/
-.login-tabib {
+.login-table {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -2778,14 +2778,14 @@ Authentification
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat; }
-  .login-tabib .logo {
+  .login-table .logo {
     display: block;
     margin-bottom: 30px;
     text-align: center;
     width: 98px;
     margin-left: auto;
     margin-right: auto; }
-  .login-tabib .login-main {
+  .login-table .login-main {
     width: 450px;
     padding: 40px;
     border-radius: 10px;
@@ -2794,44 +2794,44 @@ Authentification
     margin: 0 auto;
     background-color: #fff; }
     @media only screen and (max-width: 575px) {
-      .login-tabib .login-main {
+      .login-table .login-main {
         width: auto;
         padding: 20px; } }
-    .login-tabib .login-main .theme-form h4 {
+    .login-table .login-main .theme-form h4 {
       font-size: 24px;
       font-weight: 500;
       margin-bottom: 5px;
       color: #2b2b2b; }
-    .login-tabib .login-main .theme-form p {
+    .login-table .login-main .theme-form p {
       margin-bottom: 25px;
       font-size: 14px;
       color: #898989; }
-    .login-tabib .login-main .theme-form .form-group {
+    .login-table .login-main .theme-form .form-group {
       position: relative; }
       @media only screen and (max-width: 575px) {
-        .login-tabib .login-main .theme-form .form-group {
+        .login-table .login-main .theme-form .form-group {
           margin-bottom: 5px !important; } }
-      .login-tabib .login-main .theme-form .form-group label {
+      .login-table .login-main .theme-form .form-group label {
         font-size: 14px;
         letter-spacing: 0.4px;
         position: relative; }
-      .login-tabib .login-main .theme-form .form-group input {
+      .login-table .login-main .theme-form .form-group input {
         background-color: #f3f3ff;
         -webkit-transition: all 0.3s ease;
         transition: all 0.3s ease; }
-      .login-tabib .login-main .theme-form .form-group .checkbox input[type="checkbox"] {
+      .login-table .login-main .theme-form .form-group .checkbox input[type="checkbox"] {
         opacity: 0; }
-      .login-tabib .login-main .theme-form .form-group .checkbox label {
+      .login-table .login-main .theme-form .form-group .checkbox label {
         padding-left: 10px;
         margin-top: 10px;
         font-size: 14px; }
-    .login-tabib .login-main .theme-form .link {
+    .login-table .login-main .theme-form .link {
       position: absolute;
       top: 10px;
       right: 0;
       font-size: 14px; }
       @media only screen and (max-width: 575px) {
-        .login-tabib .login-main .theme-form .link {
+        .login-table .login-main .theme-form .link {
           position: unset; } }
 
 .checkbox label::before {

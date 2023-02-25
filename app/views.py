@@ -1,10 +1,6 @@
-from django.shortcuts import render, HttpResponse, HttpResponseRedirect
+from django.shortcuts import render
 
 
 # Create your views here.
 def login(req):
-    return HttpResponse("aaa")
-
-
-def register(req):
-    return HttpResponse()
+    return render(req, 'page-login.html')
