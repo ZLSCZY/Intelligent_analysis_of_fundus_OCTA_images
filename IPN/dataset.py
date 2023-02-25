@@ -1,10 +1,10 @@
 from torchvision import get_image_backend
 
-from datasets.videodataset import VideoDataset
-from datasets.videodataset_multiclips import (VideoDatasetMultiClips,
-                                              collate_fn)
-from datasets.activitynet import ActivityNet
-from datasets.loader import VideoLoader, VideoLoaderHDF5, VideoLoaderFlowHDF5
+from IPN.datasets.videodataset import VideoDataset
+from IPN.datasets.videodataset_multiclips import (VideoDatasetMultiClips,
+                                                  collate_fn)
+from IPN.datasets.activitynet import ActivityNet
+from IPN.datasets.loader import VideoLoader, VideoLoaderHDF5, VideoLoaderFlowHDF5
 
 
 def image_name_formatter(x):
@@ -152,7 +152,7 @@ def get_inference_data(video_path,
             loader = VideoLoader(image_name_formatter)
 
         video_path_formatter = (
-            lambda root_path, label, video_id: root_path / label / video_id)
+            lambda root_path, label, video_id: root_path + '/' + label + '/' + video_id)
     else:
         if input_type == 'rgb':
             loader = VideoLoaderHDF5()

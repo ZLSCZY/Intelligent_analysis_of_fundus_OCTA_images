@@ -167,20 +167,18 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form">
+                                        <form method="post" action="/OnUploadFile" enctype="multipart/form-data">
+                                                        {% csrf_token %}
+                                            <input type="file" name="uploadfile" class="row">
+                                            <p> <button type ="submit">开始识别</button></p>
+                                            {{error}}
+                                        </form>
                                         <form>
                                             <div class="row">
                                                 <div class="col-xl-4">
                                                     <div class="form-group row widget-3">
                                                         <div class="col-lg-10">
-                                                            <div class="form-input">
-                                                                <label class="labeltest" for="file-ip-1">
-                                                                    <span> 点击上传文件（或拖拽文件至此） </span>
-                                                                </label>
-                                                                <input type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
-                                                                <div class="preview">
-                                                                    <img id="file-ip-1-preview" src="#" alt="img">
-                                                                </div>
-                                                            </div>
+
                                                         </div>
                                                     </div>
                                                 </div>

@@ -12,24 +12,25 @@ import torch.distributed as dist
 from torch.backends import cudnn
 import torchvision
 
-from opts import parse_opts
-from model import (generate_model, load_pretrained_model, make_data_parallel,
-                   get_fine_tuning_parameters)
-from mean import get_mean_std
-from spatial_transforms import (Compose, Normalize, Resize, CenterCrop,
-                                CornerCrop, MultiScaleCornerCrop,
-                                RandomResizedCrop, RandomHorizontalFlip,
-                                ToTensor, ScaleValue, ColorJitter,
-                                PickFirstChannels)
-from temporal_transforms import (LoopPadding, TemporalRandomCrop,
-                                 TemporalCenterCrop, TemporalEvenCrop,
-                                 SlidingWindow, TemporalSubsampling)
-from temporal_transforms import Compose as TemporalCompose
-from dataset import get_training_data, get_validation_data, get_inference_data
-from utils import Logger, worker_init_fn, get_lr
-from training import train_epoch
-from validation import val_epoch
-import inference
+from IPN import inference
+from IPN.opts import parse_opts
+from IPN.model import (generate_model, load_pretrained_model, make_data_parallel,
+                       get_fine_tuning_parameters)
+from IPN.mean import get_mean_std
+from IPN.spatial_transforms import (Compose, Normalize, Resize, CenterCrop,
+                                    CornerCrop, MultiScaleCornerCrop,
+                                    RandomResizedCrop, RandomHorizontalFlip,
+                                    ToTensor, ScaleValue, ColorJitter,
+                                    PickFirstChannels)
+from IPN.temporal_transforms import (LoopPadding, TemporalRandomCrop,
+                                     TemporalCenterCrop, TemporalEvenCrop,
+                                     SlidingWindow, TemporalSubsampling)
+from IPN.temporal_transforms import Compose as TemporalCompose
+from IPN.dataset import get_training_data, get_validation_data, get_inference_data
+from IPN.utils import Logger, worker_init_fn, get_lr
+from IPN.training import train_epoch
+from IPN.validation import val_epoch
+import IPN.inference
 
 freeze_epoch = 0
 
@@ -39,17 +40,12 @@ def json_serial(obj):
         return str(obj)
 
 
-def get_opt():
+def get_opt(video_path, result_path, resume_path, r_p):
     opt = parse_opts()
-
-    if opt.root_path is not None:
-        opt.video_path = opt.root_path / opt.video_path
-        if opt.resume_path is not None:
-            opt.resume_path = opt.root_path / opt.resume_path
-        if opt.pretrain_path is not None:
-            opt.pretrain_path = opt.root_path / opt.pretrain_path
-        if opt.result_path is not None:
-            opt.result_path = opt.root_path / opt.result_path
+    opt.video_path = video_path
+    opt.result_path = result_path
+    opt.resume_path = resume_path
+    opt.root_path = r_p
     if opt.pretrain_path is not None:
         opt.n_finetune_classes = opt.n_classes
         opt.n_classes = opt.n_pretrain_classes
@@ -74,11 +70,11 @@ def get_opt():
 
         if opt.dist_rank == 0:
             print(opt)
-            with (opt.result_path / 'opts.json').open('w') as opt_file:
+            with open(opt.result_path, 'w') as opt_file:
                 json.dump(vars(opt), opt_file, default=json_serial)
     else:
-        print(opt)
-        with (opt.result_path / 'opts.json').open('w') as opt_file:
+        print(opt.result_path)
+        with open(opt.result_path, 'w') as opt_file:
             json.dump(vars(opt), opt_file, default=json_serial)
     print(opt, "!!!!!!!!!!!!!")
     return opt
@@ -415,16 +411,14 @@ def main_worker(index, opt):
             scheduler.step(prev_val_loss)
     if opt.inference:
         inference_loader, inference_class_names = get_inference_utils(opt)
-        inference_result_path = opt.result_path / '{}.json'.format(
-            opt.inference_subset)
+        inference_result_path = opt.result_path
         inference.inference(inference_loader, model, inference_result_path,
                             inference_class_names, opt.inference_no_average,
                             opt.output_topk)
 
 
-if __name__ == '__main__':
-    opt = get_opt()
-
+def identy(video_path, result_path, resume_path, root_path):
+    opt = get_opt(video_path, result_path, resume_path, root_path)
     opt.device = torch.device('cpu' if opt.no_cuda else 'cuda')
     opt.device = torch.device('cuda')
     print("torch")

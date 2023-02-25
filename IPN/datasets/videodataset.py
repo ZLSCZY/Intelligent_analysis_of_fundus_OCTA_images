@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-
+import os
 import torch
 import torch.utils.data as data
 import torchvision
@@ -56,6 +56,9 @@ def get_database(data, subset, root_path, video_path_formatter):
                     label = value['annotations']['label']
                 else:
                     label = 'test'
+                print(root_path)
+                print(label)
+                print(key)
                 video_paths.append(video_path_formatter(root_path, label, key))
     return video_ids, video_paths, annotations
 
@@ -116,8 +119,8 @@ class VideoDataset(data.Dataset):
                 label_id = -1
 
             video_path = video_paths[i]
-            print(video_path.exists(), video_path)
-            if not video_path.exists():
+            print(video_path)
+            if not os.path.exists(video_path):
                 continue
             segment = [1, 101]  # 301
             if segment[1] == 1:

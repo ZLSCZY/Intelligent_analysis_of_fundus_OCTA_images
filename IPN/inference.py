@@ -5,7 +5,7 @@ from collections import defaultdict
 import torch
 import torch.nn.functional as F
 
-from utils import AverageMeter
+from IPN.utils import AverageMeter
 
 
 def get_video_results(outputs, class_names, output_topk):
@@ -25,7 +25,7 @@ def get_video_results(outputs, class_names, output_topk):
 def inference(data_loader, model, result_path, class_names, no_average,
               output_topk):
     print('inference')
-    
+
     model.eval()
 
     batch_time = AverageMeter()
@@ -37,7 +37,7 @@ def inference(data_loader, model, result_path, class_names, no_average,
             data_time.update(time.time() - end_time)
 
             video_ids, segments = zip(*targets)
-            print("input",inputs.shape,video_ids,segments,"targets",targets)
+            print("input", inputs.shape, video_ids, segments, "targets", targets)
             outputs = model(inputs)
             outputs = F.softmax(outputs, dim=1).cpu()
             for j in range(outputs.size(0)):
@@ -52,10 +52,10 @@ def inference(data_loader, model, result_path, class_names, no_average,
             print('[{}/{}]\t'
                   'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
                   'Data {data_time.val:.3f} ({data_time.avg:.3f})\t'.format(
-                      i + 1,
-                      len(data_loader),
-                      batch_time=batch_time,
-                      data_time=data_time))
+                i + 1,
+                len(data_loader),
+                batch_time=batch_time,
+                data_time=data_time))
 
     inference_results = {'results': {}}
     if not no_average:
@@ -79,5 +79,5 @@ def inference(data_loader, model, result_path, class_names, no_average,
                     'result': result
                 })
 
-    with result_path.open('w') as f:
+    with open(result_path, 'w') as f:
         json.dump(inference_results, f)

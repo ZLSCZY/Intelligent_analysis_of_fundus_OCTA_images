@@ -295,6 +295,6 @@ def parse_opts():
                         type=int,
                         help='number of nodes for distributed training')
 
-    args = parser.parse_args()
+    args = parser.parse_args(args=[])
 
     return args

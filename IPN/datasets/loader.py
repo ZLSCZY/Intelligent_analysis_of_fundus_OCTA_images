@@ -1,15 +1,17 @@
 import io
-
+import os
 import h5py
 from PIL import Image
 from torchvision.transforms import ToTensor
 from torchvision.transforms import ToPILImage
 import numpy as np
+
+
 class ImageLoaderPIL(object):
 
     def __call__(self, path):
         # open path as file to avoid ResourceWarning (https://github.com/python-pillow/Pillow/issues/835)
-        with path.open('rb') as f:
+        with open(path, 'rb') as f:
             with Image.open(f) as img:
                 # img = img.convert('L')
                 # transform=ToTensor()
@@ -19,6 +21,7 @@ class ImageLoaderPIL(object):
                 # unloader = ToPILImage()
                 # print(np.array(img))
                 return img.convert('L')
+
 
 class ImageLoaderAccImage(object):
 
@@ -39,8 +42,8 @@ class VideoLoader(object):
     def __call__(self, video_path, frame_indices):
         video = []
         for i in frame_indices:
-            image_path = video_path / self.image_name_formatter(i)
-            if image_path.exists():
+            image_path = video_path + '/' + self.image_name_formatter(i)
+            if os.path.exists(image_path):
                 video.append(self.image_loader(image_path))
 
         return video
