@@ -31,6 +31,8 @@
                             </div>
                             <div class="login-main">
                                 <form class="theme-form">
+                                    {% csrf_token %}
+
                                     <h4>视网膜疾病辅助诊断系统</h4>
                                     <p>登录至您的账户</p>
                                     <div class="form-group m-b-10">
@@ -52,7 +54,7 @@
                                         </div>
                                         <a class="link text-primary" href="page-forgot-password.html">忘记密码?</a>
                                         <div class="mt-3">
-                                            <a href="index.html" class="btn btn-primary w-100" type="submit">登录</a>
+                                            <a  class="btn btn-primary w-100" >登录</a>
                                         </div>
                                     </div>
                                     <p class="mt-4 mb-0">没有账户?<a class="ms-2 text-primary text-center" href="page-register.html">立即注册</a>

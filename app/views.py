@@ -9,13 +9,26 @@ from Intelligent_analysis_of_fundus_OCTA_images.tools import unzip_file
 from IPN.identify import identy
 from django.views.decorators.csrf import csrf_exempt
 import zipfile
-
+from app import models
 
 @csrf_exempt
 # Create your views here.
 def login(req):
-    return render(req, 'page-login.html')
+    if req.method == 'GET':
+        return render(req, 'page-login.html')
+    else:
+        account = req.POST['account']
+        password = req.POST["password"]
+        person = models.User.objects.filter(account=account, password=password)
+        if person:
+            req.session["info"] = {'account': person[0].account,'id': person[0].identity}
+            return redirect('/index/')
+        else:
+            return render(req, 'page-login.html', {'account': account, 'error_msg': '账号或者密码错误'})
 
+
+def index(req):
+    return render(req, 'index.html')
 
 def new_patient(req):
     return render(req, 'new-patient.html')
