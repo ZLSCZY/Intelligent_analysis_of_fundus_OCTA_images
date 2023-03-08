@@ -21,7 +21,7 @@
         <div class="nav-header">
             <div class="brand-logo">
                 <a href="index.html"> <img class="logo-tabib" src="../static/images/logo3.png" alt=""></a>
-                <a href="index.html"><img class="brand-title" src="assets/images/logo4png" alt=""></a>
+                <a href="index.html"><img class="brand-title" src="../static/images/logo4.png" alt=""></a>
             </div>
         </div>
         <!-- End logo components -->
@@ -167,66 +167,69 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form">
-                                        <form method="post" action="/OnUploadFile" enctype="multipart/form-data">
-                                                        {% csrf_token %}
-                                            <input type="file" name="uploadfile" class="row">
-                                            <p> <button type ="submit">开始识别</button></p>
-                                            {{error}}
-                                        </form>
-                                        <form>
+                                        <form method="post" action="/new_patient/" >
+                                            {% csrf_token %}
                                             <div class="row">
                                                 <div class="col-xl-4">
                                                     <div class="form-group row widget-3">
                                                         <div class="col-lg-10">
-
+                                                            <div class="form-input">
+                                                                <label class="labeltest" for="file-ip-1">
+                                                                    <span> 点击上传文件（或拖拽文件至此） </span>
+                                                                </label>
+                                                                <input type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
+                                                                <div class="preview">
+                                                                    <img id="file-ip-1-preview" src="#" alt="img">
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="姓">
+                                                        <input type="text" class="form-control" name = "NPSurname" placeholder="姓">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="名">
+                                                        <input type="text" class="form-control" name = "NPName"  placeholder="名">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="email" class="form-control" placeholder="邮件">
+                                                        <input type="email" class="form-control" name = "NPEmail" placeholder="邮件">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" placeholder="手机号">
+                                                        <input type="text" class="form-control" name = "NPPhoneNumber" placeholder="手机号">
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4">
                                                     <div class="form-group">
                                                         <div class="input-group">
-                                                            <input type="text" class="form-control" placeholder="出生年月">
+                                                            <input type="text" class="form-control" name = "NPBirth" placeholder="出生年月">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <select class="form-control form-select">
-                                                            <option> 婚姻状态 </option>
-                                                            <option>已婚</option>
-                                                            <option>未婚</option>
+                                                        <select class="form-control form-select" name="NPMarriage" >
+                                                            <option value="0"> 婚姻状态 </option>
+                                                            <option value="1">已婚</option>
+                                                            <option value="2">未婚</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <select class="form-control form-select">
-                                                            <option>性别</option>
-                                                            <option>男</option>
-                                                            <option>女</option>
+                                                        <select class="form-control form-select" name="NPGender">
+                                                            <option value="0">性别</option>
+                                                            <option value="1">男</option>
+                                                            <option value="2">女</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <select class="form-control form-select">
-                                                            <option>血型</option>
-                                                            <option>A+</option>
-                                                            <option>A-</option>
-                                                            <option>B+</option>
-                                                            <option>B-</option>
-                                                            <option>O+</option>
-                                                            <option>O-</option>
-                                                            <option>AB+</option>
-                                                            <option>AB-</option>
+                                                        <select class="form-control form-select" name="NPBloodType">
+                                                            <option value="0">血型</option>
+                                                            <option value="1">A+</option>
+                                                            <option value="2">A-</option>
+                                                            <option value="3">B+</option>
+                                                            <option value="4">B-</option>
+                                                            <option value="5">O+</option>
+                                                            <option value="6">O-</option>
+                                                            <option value="7">AB+</option>
+                                                            <option value="8">AB-</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -236,14 +239,14 @@
                                                 <div class="col-xl-4">
                                                     <div class="form-group row">
                                                         <div class="col-lg-12">
-                                                            <input type="text" class="form-control" placeholder="体重">
+                                                            <input type="text" class="form-control" name="NPWeight" placeholder="体重">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4">
                                                     <div class="form-group row">
                                                         <div class="col-lg-12">
-                                                            <input type="text" class="form-control" placeholder="身高">
+                                                            <input type="text" class="form-control" name="NPHeight" placeholder="身高">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -251,12 +254,12 @@
                                             <div class="row">
                                                 <div class="col-xl-4">
                                                     <div class="form-group">
-                                                        <textarea class="form-control" placeholder="地址" rows="4"></textarea>
+                                                        <textarea class="form-control" name="NPAddress" placeholder="地址" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-8">
                                                     <div class="form-group">
-                                                        <textarea class="form-control" placeholder="过往病史" rows="4"></textarea>
+                                                        <textarea class="form-control" name="NPCase" placeholder="过往病史" rows="4"></textarea>
                                                     </div>
                                                     <div class="form-group text-right">
                                                         <button type="submit" class="btn btn-primary float-end">保存</button>
@@ -279,7 +282,7 @@
         <!-- start section footer -->
         <div class="footer">
             <div class="copyright">
-                <p class="mb-0">Copyright © Designed &amp; Developed by <a href="uxign.com" target="_blank">Uxign</a> 2021
+                <p class="mb-0">Copyright © Designed &amp; Developed by  2023
                 </p>
             </div>
         </div>
