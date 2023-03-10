@@ -167,9 +167,10 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="basic-form">
-                                        <form method="post" action="/new_patient/" >
+                                        <form method="post" action="/new_patient/" enctype="multipart/form-data" >
                                             {% csrf_token %}
                                             <div class="row">
+                                                <!--
                                                 <div class="col-xl-4">
                                                     <div class="form-group row widget-3">
                                                         <div class="col-lg-10">
@@ -177,7 +178,7 @@
                                                                 <label class="labeltest" for="file-ip-1">
                                                                     <span> 点击上传文件（或拖拽文件至此） </span>
                                                                 </label>
-                                                                <input type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
+                                                                <input type="file" id="file-ip-1" accept="image/*" name="NPPic"  onchange="showPreview(event);">
                                                                 <div class="preview">
                                                                     <img id="file-ip-1-preview" src="#" alt="img">
                                                                 </div>
@@ -185,7 +186,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-4">
+                                                 -->
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <input type="text" class="form-control" name = "NPSurname" placeholder="姓">
                                                     </div>
@@ -198,8 +200,11 @@
                                                     <div class="form-group">
                                                         <input type="text" class="form-control" name = "NPPhoneNumber" placeholder="手机号">
                                                     </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" name="NPWeight" placeholder="体重">
+                                                    </div>
                                                 </div>
-                                                <div class="col-xl-4">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <div class="input-group">
                                                             <input type="text" class="form-control" name = "NPBirth" placeholder="出生年月">
@@ -232,25 +237,12 @@
                                                             <option value="8">AB-</option>
                                                         </select>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xl-4"></div>
-                                                <div class="col-xl-4">
-                                                    <div class="form-group row">
-                                                        <div class="col-lg-12">
-                                                            <input type="text" class="form-control" name="NPWeight" placeholder="体重">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-4">
-                                                    <div class="form-group row">
-                                                        <div class="col-lg-12">
-                                                            <input type="text" class="form-control" name="NPHeight" placeholder="身高">
-                                                        </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" name="NPHeight" placeholder="身高">
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="row">
                                                 <div class="col-xl-4">
                                                     <div class="form-group">
