@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EYE Apps web | Admin Dashboard Template</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png">
     <!-- Base Styling  -->
     <link rel="stylesheet" href="../static/main/css/fonts.css">
     <link rel="stylesheet" href="../static/main/css/style.css">
@@ -19,37 +18,35 @@
         <div class="login-table">
             <div>
                 <div class="text-center">
-                    <a class="logo" href="index.html">
-                        <img class="img-fluid" src="../static/images/logo3.png" alt="loogin page">
+                    <a class="logo" >
+                        <img class="img-fluid" src="../static/images/logo3.png" alt="login page">
                     </a>
                 </div>
                 <div class="login-main">
-                    <form class="theme-form">
+                    <form class="theme-form" action="/register/" method="post">
+                        {% csrf_token %}
                         <h4 align="center">创建你的账户</h4>
                         <p align="center">输入您的个人详细信息以创建帐户</p>
                         <div class="form-group m-b-10">
-                            <label class="col-form-label">账号</label>
-                            <input class="form-control" type="email" >
-                        <div class="form-group m-b-10">
                             <label class="col-form-label">电子邮件地址</label>
-                            <input class="form-control" type="email" >
+                            <input class="form-control w-100" type="email" name="account" value="{{ account }}">
+                            <label></label>
+                            <button type="submit" name="sent_code" class="btn btn-primary w-100">发送验证码</button>
                         </div>
                         <div class="form-group m-b-10">
                             <label class="col-form-label">密码</label>
                             <div class="form-input position-relative">
-                                <input class="form-control" type="password" >
+                                <input class="form-control" type="password" name="password" value="{{ password }}">
                                 <div class="show-hide"><span class="show"></span></div>
                             </div>
                         </div>
-                        <div class="form-group mb-0">
-                            <div class="checkbox p-0">
-                                <input id="checkbox1" type="checkbox">
-                                <label class="text-muted" for="checkbox1">同意<a class="ms-2 text-primary"
-                              href="#">《用户隐私协议》</a></label>
-                            </div>
-                            <a href="index.html" class="btn btn-primary w-100">创建账户</a>
+                        <div class="form-group m-b-10">
+                            <label class="col-form-label">验证码</label>
+                            <input class="form-control" name="in_code" value="{{ in_code }}">
                         </div>
-                        <p class="mt-4 mb-0">已有账户?<a class="ms-2 text-primary" href="page-login.html">登录</a>
+                        <button type="submit" name="new_acc" class="btn btn-primary w-100">创建账号</button>
+                        <p class="mt-4 mb-0">已有账户?
+                            <a class="ms-2 text-primary" href="/login/">登录</a>
                         </p>
                     </form>
                 </div>
