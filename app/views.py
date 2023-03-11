@@ -1,16 +1,15 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect
-from django.shortcuts import render
-import os
+from django.shortcuts import render, redirect
 import sys
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
-from django.conf import settings
 from Intelligent_analysis_of_fundus_OCTA_images.tools import unzip_file
-from IPN.identify import identy
+# from IPN.identify import identy
 from django.views.decorators.csrf import csrf_exempt
 import zipfile
 from app import models
+
 
 @csrf_exempt
 # Create your views here.
@@ -22,14 +21,19 @@ def login(req):
         password = req.POST["password"]
         person = models.User.objects.filter(account=account, password=password)
         if person:
-            req.session["info"] = {'account': person[0].account,'id': person[0].identity}
+            req.session["info"] = {'account': person[0].account, 'id': person[0].identity}
             return redirect('/index/')
         else:
             return render(req, 'page-login.html', {'account': account, 'error_msg': '账号或者密码错误'})
 
 
+def register(req):
+    return render(req, 'page-register.html')
+
+
 def index(req):
     return render(req, 'index.html')
+
 
 def new_patient(req):
     if req.method == 'GET':
@@ -63,12 +67,12 @@ def new_diagnosis(req):
 
 
 def upload(req):
-    '''
+    """
     新增诊断，针对已经存在的患者，这一步还要收集当前的病人信息，将诊断结果给到该病人
     当前这个req不知道有没有这些信息，如果没有的话，后续再处理
     :param req:
     :return:
-    '''
+    """
     file = req.FILES.get("uploadfile")
 
     index = 1
@@ -88,6 +92,3 @@ def upload(req):
 
     return HttpResponse("ok")
     # print(file)
-
-
-
