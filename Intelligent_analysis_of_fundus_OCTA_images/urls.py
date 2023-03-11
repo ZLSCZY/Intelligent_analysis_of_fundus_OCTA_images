@@ -23,6 +23,7 @@ urlpatterns = [
     path('register/', views.register),
     path('index/', views.index),
     path('new_patient/', views.new_patient),
+    path('all_patient/', views.all_patient, name='all_patient'),
     path('new_diagnosis/', views.new_diagnosis),
     path("OnUploadFile", views.upload)
 ]

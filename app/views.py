@@ -35,6 +35,15 @@ def index(req):
     return render(req, 'index.html')
 
 
+def all_patient(req):
+    # 获取当前医生账户名
+    account = req.session["info"]['account']
+    # 查询获得该医生下病人信息
+    case_list = models.Case.objects.filter(case_account=account)
+
+    return render(req, 'all-patients.html', {'case_list': case_list})
+
+
 def new_patient(req):
     if req.method == 'GET':
         return render(req, 'new-patient.html')

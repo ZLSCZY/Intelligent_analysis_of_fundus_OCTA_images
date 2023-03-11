@@ -24,29 +24,32 @@ $('#example1 tbody').on('click', 'a.delet span', function () {
 
 let ex2 = jQuery('#example2').DataTable({
 
-    "columnDefs": [{
-        "targets": [3],
-        "visible": false
-    }, {
-        "targets": [5],
-        "visible": false
-    }, {
-        "targets": [8],
-        "visible": false
-    }, {
-        "targets": [9],
-        "visible": false
-    }, {
-        "targets": [10],
-        "visible": false
-    }, {
-        "targets": [11],
-        "visible": false
-    }, {
-        "targets": [12],
-        "visible": false
-    },]
-
+    // "columnDefs": [{
+    //     "targets": [3],
+    //     "visible": false
+    // }, {
+    //     "targets": [5],
+    //     "visible": false
+    // }, {
+    //     "targets": [8],
+    //     "visible": false
+    // }, {
+    //     "targets": [9],
+    //     "visible": false
+    // }, {
+    //     "targets": [10],
+    //     "visible": false
+    // }, {
+    //     "targets": [11],
+    //     "visible": false
+    // }, {
+    //     "targets": [12],
+    //     "visible": false
+    // },]
+    // "columnDefs": [{
+    //     "targets": [3],
+    //     "visible": false
+    // },]
 
 });
 
@@ -57,7 +60,9 @@ $('#example2 tbody').on('click', '.vue', function () {
     var data = ex2.row($(this).parents('tr')).data();
     $('.insertHere').html(
         // Adding and structuring the full data
-        '<table class="table table-striped table-responsive-sm modalShowTable" width="100%"><tbody><tr><td>姓<td><td>' + data[1] + '</td></tr><tr><td>名<td><td>' + data[2] + '</td></tr><tr><td>邮件<td><td>' + data[3] + '</td></tr><tr><td>手机号码<td><td>' + data[4] + '</td></tr><tr><td>出生日期<td><td>' + data[5] + '</td></tr><tr><td>婚姻状况<td><td>' + data[6] + '</td></tr><tr><td>性别<td><td>' + data[7] + '</td></tr> <tr><td>血型<td><td>' + data[8] + '</td></tr> <tr><td>体重<td><td>' + data[9] + '</td></tr> <tr><td>身高<td><td>' + data[10] + '</td></tr> <tr><td>地址<td><td>' + data[11] + '</td></tr> <tr><td>病史<td><td>' + data[12] + '</td></tr></tbody></table>'
+        // '<table class="table table-striped table-responsive-sm modalShowTable" width="100%"><tbody><tr><td>姓<td><td>' + data[1] + '</td></tr><tr><td>名<td><td>' + data[2] + '</td></tr><tr><td>邮件<td><td>' + data[3] + '</td></tr><tr><td>手机号码<td><td>' + data[4] + '</td></tr><tr><td>出生日期<td><td>' + data[5] + '</td></tr><tr><td>婚姻状况<td><td>' + data[6] + '</td></tr><tr><td>性别<td><td>' + data[7] + '</td></tr> <tr><td>血型<td><td>' + data[8] + '</td></tr> <tr><td>体重<td><td>' + data[9] + '</td></tr> <tr><td>身高<td><td>' + data[10] + '</td></tr> <tr><td>地址<td><td>' + data[11] + '</td></tr> <tr><td>病史<td><td>' + data[12] + '</td></tr></tbody></table>'
+        '<table class="table table-striped table-responsive-sm modalShowTable" width="100%"><tbody><tr><td>编号<td><td>' + data[1] + '</td></tr><tr><td>姓名<td><td>' + data[2] + '</td></tr><tr><td>年龄<td><td>' + data[3] + '</td></tr><tr><td>性别<td><td>' + data[4] + '</td></tr></tbody></table>'
+
     );
     // calling the bootstrap modal
     $('#myModal').modal('show');

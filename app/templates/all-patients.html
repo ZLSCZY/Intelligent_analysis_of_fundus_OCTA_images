@@ -44,7 +44,7 @@
                         </a>
                         <ul class="list-unstyled mm-collapse">
                             <li><a href="new-patient.html">新增患者</a></li>
-                            <li><a href="all-patients.html">所有患者</a></li>
+                            <li><a href="/all_patient/">所有患者</a></li>
                         </ul>
                     </li>
 
@@ -177,36 +177,24 @@
                                             <thead>
                                                 <tr>
                                                     <th></th>
-                                                    <th>姓</th>
-                                                    <th>名</th>
-                                                    <th>邮件</th>
-                                                    <th>手机号码</th>
-                                                    <th>出生日期</th>
-                                                    <th>婚姻状态</th>
+                                                    <th>编号</th>
+                                                    <th>姓名</th>
+                                                    <th>年龄</th>
                                                     <th>性别</th>
-                                                    <th>血型</th>
-                                                    <th>体重</th>
-                                                    <th>身高</th>
-                                                    <th>地址</th>
-                                                    <th>病史</th>
                                                     <th>操作</th>
+
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
+                                                {#此处为访问数据库所得病例数据#}
+                                                {% for case in case_list %}
+                                                    <tr>
                                                     <td></td>
-                                                    <td>Airi </td>
-                                                    <td>Satou</td>
-                                                    <td>test@gmail.com</td>
-                                                    <td>658543469</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>Maried</td>
-                                                    <td>Male</td>
-                                                    <td>A +</td>
-                                                    <td>61</td>
-                                                    <td>41</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
+                                                    <td>{{ case.case_number }}</td>
+                                                    <td>{{ case.case_name }}</td>
+                                                    <td>{{ case.case_age }}</td>
+                                                    <td>{{ case.case_sex }}</td>
+
                                                     <td>
                                                         <a class='mr-4 vue'>
                                                             <span class='fa fa-eye' aria-hidden='true'></span>
@@ -218,319 +206,8 @@
                                                             <span class='fas fa-trash-alt'></span>
                                                         </a>
                                                     </td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td>Angelica </td>
-                                                    <td>Ramos</td>
-                                                    <td>test@gmail.com</td>
-                                                    <td>658543469</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>Maried</td>
-                                                    <td>Male</td>
-                                                    <td>A +</td>
-                                                    <td>61</td>
-                                                    <td>41</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>
-                                                        <a class='mr-4 vue'>
-                                                            <span class='fa fa-eye' aria-hidden='true'></span>
-                                                        </a>
-                                                        <a data-bs-toggle='modal' data-bs-target='#modal-edit' class='mr-4'>
-                                                            <span class='fas fa-pencil-alt'></span>
-                                                        </a>
-                                                        <a class='mr-4 delet'>
-                                                            <span class='fas fa-trash-alt'></span>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td>Ashton</td>
-                                                    <td> Cox</td>
-                                                    <td>test@gmail.com</td>
-                                                    <td>658543469</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>Maried</td>
-                                                    <td>Male</td>
-                                                    <td>A +</td>
-                                                    <td>61</td>
-                                                    <td>41</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>
-                                                        <a class='mr-4 vue'>
-                                                            <span class='fa fa-eye' aria-hidden='true'></span>
-                                                        </a>
-                                                        <a data-bs-toggle='modal' data-bs-target='#modal-edit' class='mr-4'>
-                                                            <span class='fas fa-pencil-alt'></span>
-                                                        </a>
-                                                        <a class='mr-4 delet'>
-                                                            <span class='fas fa-trash-alt'></span>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td>Bradley </td>
-                                                    <td>Greer</td>
-                                                    <td>test@gmail.com</td>
-                                                    <td>658543469</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>Maried</td>
-                                                    <td>Male</td>
-                                                    <td>A +</td>
-                                                    <td>61</td>
-                                                    <td>41</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>
-                                                        <a class='mr-4 vue'>
-                                                            <span class='fa fa-eye' aria-hidden='true'></span>
-                                                        </a>
-                                                        <a data-bs-toggle='modal' data-bs-target='#modal-edit' class='mr-4'>
-                                                            <span class='fas fa-pencil-alt'></span>
-                                                        </a>
-                                                        <a class='mr-4 delet'>
-                                                            <span class='fas fa-trash-alt'></span>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td>Brenden </td>
-                                                    <td>Wagner</td>
-                                                    <td>test@gmail.com</td>
-                                                    <td>658543469</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>Maried</td>
-                                                    <td>Male</td>
-                                                    <td>A +</td>
-                                                    <td>61</td>
-                                                    <td>41</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>
-                                                        <a class='mr-4 vue'>
-                                                            <span class='fa fa-eye' aria-hidden='true'></span>
-                                                        </a>
-                                                        <a data-bs-toggle='modal' data-bs-target='#modal-edit' class='mr-4'>
-                                                            <span class='fas fa-pencil-alt'></span>
-                                                        </a>
-                                                        <a class='mr-4 delet'>
-                                                            <span class='fas fa-trash-alt'></span>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td>Brielle </td>
-                                                    <td>Williamson</td>
-                                                    <td>test@gmail.com</td>
-                                                    <td>658543469</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>Maried</td>
-                                                    <td>Male</td>
-                                                    <td>A +</td>
-                                                    <td>61</td>
-                                                    <td>41</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>
-                                                        <a class='mr-4 vue'>
-                                                            <span class='fa fa-eye' aria-hidden='true'></span>
-                                                        </a>
-                                                        <a data-bs-toggle='modal' data-bs-target='#modal-edit' class='mr-4'>
-                                                            <span class='fas fa-pencil-alt'></span>
-                                                        </a>
-                                                        <a class='mr-4 delet'>
-                                                            <span class='fas fa-trash-alt'></span>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td>Bruno</td>
-                                                    <td> Nash</td>
-                                                    <td>test@gmail.com</td>
-                                                    <td>658543469</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>Maried</td>
-                                                    <td>Male</td>
-                                                    <td>A +</td>
-                                                    <td>61</td>
-                                                    <td>41</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>
-                                                        <a class='mr-4 vue'>
-                                                            <span class='fa fa-eye' aria-hidden='true'></span>
-                                                        </a>
-                                                        <a data-bs-toggle='modal' data-bs-target='#modal-edit' class='mr-4'>
-                                                            <span class='fas fa-pencil-alt'></span>
-                                                        </a>
-                                                        <a class='mr-4 delet'>
-                                                            <span class='fas fa-trash-alt'></span>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td>Caesar </td>
-                                                    <td>Vance</td>
-                                                    <td>test@gmail.com</td>
-                                                    <td>658543469</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>Maried</td>
-                                                    <td>Male</td>
-                                                    <td>A +</td>
-                                                    <td>61</td>
-                                                    <td>41</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>
-                                                        <a class='mr-4 vue'>
-                                                            <span class='fa fa-eye' aria-hidden='true'></span>
-                                                        </a>
-                                                        <a data-bs-toggle='modal' data-bs-target='#modal-edit' class='mr-4'>
-                                                            <span class='fas fa-pencil-alt'></span>
-                                                        </a>
-                                                        <a class='mr-4 delet'>
-                                                            <span class='fas fa-trash-alt'></span>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td>Cara </td>
-                                                    <td>Stevens</td>
-                                                    <td>test@gmail.com</td>
-                                                    <td>658543469</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>Maried</td>
-                                                    <td>Male</td>
-                                                    <td>A +</td>
-                                                    <td>61</td>
-                                                    <td>41</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>
-                                                        <a class='mr-4 vue'>
-                                                            <span class='fa fa-eye' aria-hidden='true'></span>
-                                                        </a>
-                                                        <a data-bs-toggle='modal' data-bs-target='#modal-edit' class='mr-4'>
-                                                            <span class='fas fa-pencil-alt'></span>
-                                                        </a>
-                                                        <a class='mr-4 delet'>
-                                                            <span class='fas fa-trash-alt'></span>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td>Cedric </td>
-                                                    <td>Kelly </td>
-                                                    <td>test@gmail.com</td>
-                                                    <td>658543469</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>Maried</td>
-                                                    <td>Male</td>
-                                                    <td>A +</td>
-                                                    <td>61</td>
-                                                    <td>41</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>
-                                                        <a class='mr-4 vue'>
-                                                            <span class='fa fa-eye' aria-hidden='true'></span>
-                                                        </a>
-                                                        <a data-bs-toggle='modal' data-bs-target='#modal-edit' class='mr-4'>
-                                                            <span class='fas fa-pencil-alt'></span>
-                                                        </a>
-                                                        <a class='mr-4 delet'>
-                                                            <span class='fas fa-trash-alt'></span>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td>Charde </td>
-                                                    <td>Marshall</td>
-                                                    <td>test@gmail.com</td>
-                                                    <td>658543469</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>Maried</td>
-                                                    <td>Male</td>
-                                                    <td>A +</td>
-                                                    <td>61</td>
-                                                    <td>41</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>
-                                                        <a class='mr-4 vue'>
-                                                            <span class='fa fa-eye' aria-hidden='true'></span>
-                                                        </a>
-                                                        <a data-bs-toggle='modal' data-bs-target='#modal-edit' class='mr-4'>
-                                                            <span class='fas fa-pencil-alt'></span>
-                                                        </a>
-                                                        <a class='mr-4 delet'>
-                                                            <span class='fas fa-trash-alt'></span>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td>Colleen</td>
-                                                    <td> Hurst</td>
-                                                    <td>test@gmail.com</td>
-                                                    <td>658543469</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>Maried</td>
-                                                    <td>Male</td>
-                                                    <td>A +</td>
-                                                    <td>61</td>
-                                                    <td>41</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>
-                                                        <a class='mr-4 vue'>
-                                                            <span class='fa fa-eye' aria-hidden='true'></span>
-                                                        </a>
-                                                        <a data-bs-toggle='modal' data-bs-target='#modal-edit' class='mr-4'>
-                                                            <span class='fas fa-pencil-alt'></span>
-                                                        </a>
-                                                        <a class='mr-4 delet'>
-                                                            <span class='fas fa-trash-alt'></span>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td>Daidai</td>
-                                                    <td> Rios</td>
-                                                    <td>test@gmail.com</td>
-                                                    <td>658543469</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>Maried</td>
-                                                    <td>Male</td>
-                                                    <td>A +</td>
-                                                    <td>61</td>
-                                                    <td class="text-end">41</td>
-                                                    <td class="text-end">lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>lorem ipsum kwjhdkj jkdhjkfds</td>
-                                                    <td>
-                                                        <a class='mr-4 vue'>
-                                                            <span class='fa fa-eye' aria-hidden='true'></span>
-                                                        </a>
-                                                        <a data-bs-toggle='modal' data-bs-target='#modal-edit' class='mr-4'>
-                                                            <span class='fas fa-pencil-alt'></span>
-                                                        </a>
-                                                        <a class='mr-4 delet'>
-                                                            <span class='fas fa-trash-alt'></span>
-                                                        </a>
-                                                    </td>
-                                                </tr>
+                                                    </tr>
+                                                {% endfor %}
                                             </tbody>
                                         </table>
                                     </div>

@@ -1,7 +1,7 @@
 import torch
 from torch import nn
 
-from IPN.models import resnet, resnet2p1d, pre_act_resnet, wide_resnet, resnext, densenet, vgg_series
+# from IPN.models import resnet, resnet2p1d, pre_act_resnet, wide_resnet, resnext, densenet, vgg_series
 
 
 def get_module_name(name):

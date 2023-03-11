@@ -14,3 +14,15 @@ class User(models.Model):
     class Meta:
         managed = True
         db_table = 'User'
+
+
+class Case(models.Model):
+    case_account = models.ForeignKey(User, models.DO_NOTHING, db_column='case_account')
+    case_number = models.IntegerField()
+    case_name = models.CharField(max_length=64, blank=True, null=True)
+    case_age = models.PositiveSmallIntegerField(blank=True, null=True)
+    case_sex = models.CharField(max_length=2, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'case'
