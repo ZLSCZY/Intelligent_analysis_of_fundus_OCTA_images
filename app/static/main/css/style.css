@@ -2589,8 +2589,15 @@ table.dataTable:not(.fixedHeader-locked):not(.fixedHeader-floating) {
   margin-bottom: 0;
   font-size: inherit;
   line-height: 1.5;
+  position: relative;
   color: #7e7e7e; }
 
+.button1{
+    position: absolute;
+    /* 具体位置视情况而定 */
+    top: 3px;
+    left: 5px;
+}
 /*****************************
 Card Palettes
 *****************************/

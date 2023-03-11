@@ -1,34 +1,56 @@
-from django.http import HttpResponse
-from django.shortcuts import redirect
-from django.shortcuts import render, redirect
-import sys
+import random
+from django.shortcuts import render, redirect, HttpResponse
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from Intelligent_analysis_of_fundus_OCTA_images.tools import unzip_file
 # from IPN.identify import identy
 from django.views.decorators.csrf import csrf_exempt
 import zipfile
+import sys
 from app import models
 
 
 @csrf_exempt
 # Create your views here.
-def login(req):
-    if req.method == 'GET':
-        return render(req, 'page-login.html')
+def login(request):
+    if request.method == 'GET':
+        return render(request, 'page-login.html')
     else:
-        account = req.POST['account']
-        password = req.POST["password"]
+        account = request.POST['account']
+        password = request.POST["password"]
         person = models.User.objects.filter(account=account, password=password)
         if person:
-            req.session["info"] = {'account': person[0].account, 'id': person[0].identity}
+            request.session["info"] = {'account': person[0].account, 'id': person[0].identity}
             return redirect('/index/')
         else:
-            return render(req, 'page-login.html', {'account': account, 'error_msg': '账号或者密码错误'})
+            return render(request, 'page-login.html', {'account': account, 'error_msg': '账号或者密码错误'})
 
 
-def register(req):
-    return render(req, 'page-register.html')
+def register(request):
+    if request.method == 'GET':
+        return render(request, 'page-register.html')
+    else:
+        content = {'account': request.POST['account'], 'password': request.POST['password']}
+        if 'sent_code' in request.POST:
+            if models.User.objects.filter(account=content['account']):
+                return render(request, 'page-register.html',{'account':"邮箱已注册"})
+
+            vcode = random.randint(1001, 9999)
+            print(vcode)
+            response = render(request, 'page-register.html',content)
+            response.set_cookie('vcode',str(vcode), 60 * 5)
+            response.set_cookie('register',content['account'],60*5)
+            return response
+
+        if 'new_acc' in request.POST:
+            if models.User.objects.filter(content['account']):
+                return render(request, 'page-register.html',{'account':"邮箱已注册"})
+            if request.COOKIES.get('vcode') == request.POST['in_code']:
+                if request.COOKIES.get('register') == request.POST['account']:
+                    models.User.objects.create(account=content['account'], password=content['password'], identity=0,
+                                               case_number=0)
+                return redirect('/index/')
+        return render(request, 'page-register.html', content)
 
 
 def index(req):
@@ -38,6 +60,7 @@ def index(req):
 def new_patient(req):
     if req.method == 'GET':
         return render(req, 'new-patient.html')
+
     else:
         print(req.POST)
         # 中间应该添加数据库操作将数据存至数据库中，创建新的病人信息
@@ -62,8 +85,11 @@ def new_patient(req):
     '''
 
 
-def new_diagnosis(req):
-    return render(req, 'new-diagnosis.html')
+def new_diagnosis(request):
+    if request.method == 'GET':
+        return render(request, 'new-diagnosis.html')
+    else:
+        return
 
 
 def upload(req):
