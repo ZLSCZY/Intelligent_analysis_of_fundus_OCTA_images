@@ -10,6 +10,10 @@ var gradientStroke2 = chartactivity.createLinearGradient(200, 0, 100, 0);
 gradientStroke2.addColorStop(0, "rgba(255, 92, 203, 1)");
 gradientStroke2.addColorStop(1, "rgba(253, 133, 168, 1)");
 
+var gradientStroke3 = chartactivity.createLinearGradient(200, 0, 100, 0);
+gradientStroke3.addColorStop(0, "rgba(80, 152, 100, 1)");
+gradientStroke3.addColorStop(1, "rgba(90, 200, 168, 1)");
+
 var gradientFill = chartactivity.createLinearGradient(0, 0, 0, 350);
 gradientFill.addColorStop(0, "rgba(128, 182, 244, 0.5)");
 gradientFill.addColorStop(1, "rgba(128, 182, 244, 0)");
@@ -18,12 +22,16 @@ var gradientFill2 = chartactivity.createLinearGradient(0, 0, 0, 350);
 gradientFill2.addColorStop(0, "rgba(255, 91, 204, 0.5)");
 gradientFill2.addColorStop(1, "rgba(255, 91, 204, 0)");
 
+var gradientFill3 = chartactivity.createLinearGradient(0, 0, 0, 350);
+gradientFill2.addColorStop(0, "rgba(204, 255, 204, 0.5)");
+gradientFill2.addColorStop(1, "rgba(204, 255, 204, 0)");
+
 var ActivityChart = new Chart(chartactivity, {
     type: 'line',
     data: {
-        labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL"],
+        labels: ["1", "2", "3", "4", "5", "6", "7"],
         datasets: [{
-            label: "Appointment",
+            label: "DR",
             borderColor: gradientStroke,
             pointBorderColor: gradientStroke,
             pointBackgroundColor: "rgba(255, 255, 255, 1)",
@@ -33,12 +41,12 @@ var ActivityChart = new Chart(chartactivity, {
             pointHoverRadius: 3,
             pointHoverBorderWidth: 1,
             pointRadius: 3,
-            fill: true,
+            fill: false,
             backgroundColor: gradientFill,
             borderWidth: 2,
             data: [40, 4, 31, 10, 34, 12, 48]
         }, {
-            label: "Patients",
+            label: "AMD",
             borderColor: gradientStroke2,
             pointBorderColor: gradientStroke2,
             pointBackgroundColor: "rgba(255, 255, 255, 1)",
@@ -48,11 +56,29 @@ var ActivityChart = new Chart(chartactivity, {
             pointHoverRadius: 3,
             pointHoverBorderWidth: 1,
             pointRadius: 3,
-            fill: true,
+            fill: false,
             backgroundColor: gradientFill2,
             borderWidth: 2,
             data: [26, 12, 20, 16, 6, 25, 18]
-        }]
+        }, {
+            label: "NORMAL",
+            borderColor: gradientStroke3,
+            pointBorderColor: gradientStroke3,
+            pointBackgroundColor: "rgba(255, 255, 255, 1)",
+            pointHoverBackgroundColor: "rgba(128, 182, 244, 1)",
+            pointHoverBorderColor: gradientStroke3,
+            pointBorderWidth: 1,
+            pointHoverRadius: 3,
+            pointHoverBorderWidth: 1,
+            pointRadius: 3,
+            fill: true,
+            backgroundColor: gradientFill3,
+            borderWidth: 2,
+            data: [26, 26, 26, 26, 26, 26, 26]
+        }
+
+
+        ]
     },
     options: {
         legend: {

@@ -22,5 +22,6 @@ urlpatterns = [
     path('login/', views.login),
     path('new_patient/', views.new_patient),
     path('new_diagnosis/', views.new_diagnosis),
+    path('results/', views.results),
     path("OnUploadFile", views.upload)
 ]

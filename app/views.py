@@ -48,6 +48,8 @@ def new_patient(req):
 def new_diagnosis(req):
     return render(req, 'new-diagnosis.html')
 
+def results(req):
+    return render(req, 'results.html')
 
 def upload(req):
     '''
