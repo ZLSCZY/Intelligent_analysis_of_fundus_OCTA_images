@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.shortcuts import redirect
 from django.shortcuts import render
 import os
 import sys
@@ -35,8 +36,15 @@ def new_patient(req):
         return render(req, 'new-patient.html')
     else:
         print(req.POST)
+        # 中间应该添加数据库操作将数据存至数据库中，创建新的病人信息
+
+        # file是图片文件在内存中
+
+        return redirect(new_diagnosis)
+
     '''
     变量名对应的含义
+    
     NPSurname : 新增病人的姓
     NPName : 新增病人的名
     NPEmail : 邮件
@@ -62,6 +70,7 @@ def upload(req):
     :return:
     '''
     file = req.FILES.get("uploadfile")
+
     index = 1
     if file is None:
         return render(req, 'new-diagnosis.html', {'error': '请选择zip文件后再识别'})
