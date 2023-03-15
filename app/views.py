@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from Intelligent_analysis_of_fundus_OCTA_images.tools import unzip_file
+from django.core.mail import send_mail
+from django.conf import settings
 from IPN.identify import identy
 from django.views.decorators.csrf import csrf_exempt
 import zipfile
@@ -36,7 +38,12 @@ def register(request):
                 return render(request, 'page-register.html', {'account': "邮箱已注册"})
 
             vcode = random.randint(1001, 9999)
-            print(vcode)
+            send_mail('网址注册验证',
+                      '验证码:'+str(vcode),
+                      settings.EMAIL_HOST_USER,  # 这里可以同时发给多个收件人
+                      ['2025575181@qq.com',content['account']],
+                      fail_silently=False)
+
             response = render(request, 'page-register.html', content)
             response.set_cookie('vcode', str(vcode), 60 * 5)
             response.set_cookie('register', content['account'], 60 * 5)
