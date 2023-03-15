@@ -20,8 +20,8 @@
         <!-- start logo components 开始的名字与logo -->
         <div class="nav-header">
             <div class="brand-logo">
-                <a href="index.html"> <img class="logo-tabib" src="../static/images/logo3.png" alt=""></a>
-                <a href="index.html"><img class="brand-title" src="../static/images/logo4.png" alt=""></a>
+                <a href="/index/"> <img class="logo-tabib" src="../static/images/logo3.png" alt=""></a>
+                <a href="/index/"><img class="brand-title" src="../static/images/logo4.png" alt=""></a>
             </div>
         </div>
         <!-- End logo components -->
@@ -32,7 +32,7 @@
             <nav class="navigation">
                 <ul class="list-unstyled main-menu">
                     <li class="has-submenu active">
-                        <a href="index.html">
+                        <a href="/index/">
                             <i class="fas fa-th-large"></i>
                             <span class="nav-label">医生首页</span>
                         </a>
@@ -44,8 +44,8 @@
                             <span class="nav-label">患者情况</span>
                         </a>
                         <ul class="list-unstyled mm-collapse">
-                            <li><a href="new-patient.html">新增患者</a></li>
-                            <li><a href="all-patients.html">所有患者</a></li>
+                            <li><a href="/new_patient/">新增患者</a></li>
+                            <li><a href="/all_patient/">所有患者</a></li>
                         </ul>
                     </li>
 
@@ -62,10 +62,10 @@
             </nav>
             <div class="sidebar-widgets">
                 <div class="top-sidebar box-shadow mx-25 m-b-30 p-b-20 text-center">
-                    <a href="rapid-diagnosis.html"> <!--应该是快速诊断的网页url-->
+                    <a href="/rapid_diagnosis/"> <!--应该是快速诊断的网页url-->
                         <img src="../static/images/appointement.svg" class="side-img" alt="img">
                     </a>
-                    <a href="rapid-diagnosis.html">
+                    <a href="/rapid_diagnosis/">
                         <h4 class="text-primary mb-0">快速诊断</h4>
                     </a>
                 </div>
@@ -88,10 +88,10 @@
                     <div class="left-header content-header__menu">
                         <ul class="list-unstyled">
                             <li class="nav-link btn">
-                                <a href="rapid-diagnosis.html"><i class="far fa-eye"></i> <span> 快速诊断</span></a>
+                                <a href="/rapid_diagnosis/"><i class="far fa-eye"></i> <span> 快速诊断</span></a>
                             </li>
                             <li class="nav-link btn">
-                                <a href="new-patient.html"><i class="far fa-file-alt"></i> <span> 新增患者</span></a>
+                                <a href="/new_patient/"><i class="far fa-file-alt"></i> <span> 新增患者</span></a>
                             </li>
                         </ul>
                     </div>
@@ -127,7 +127,7 @@
                                             <span class="ml-2">Inbox</span>
                                         </a>
                                         -->
-                                        <a href="page-login.html">
+                                        <a href="/login/">
                                             <i class="fas fa-sign-in-alt"></i>
                                             <span class="ml-2">退出 </span>
                                         </a>
@@ -154,8 +154,8 @@
                         </div>
                         <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active"><a href="/new-patient.html">New Patient</a></li>
+                                <li class="breadcrumb-item"><a href="/index/">Home</a></li>
+                                <li class="breadcrumb-item active"><a href="/new_patient/">New Patient</a></li>
                             </ol>
                         </div>
                     </div>
@@ -188,71 +188,80 @@
                                                 </div>
                                                  -->
                                                 <div class="col-md-6">
+{#                                                    <div class="form-group">#}
+{#                                                        <input type="text" class="form-control" name = "NPSurname" placeholder="姓">#}
+{#                                                    </div>#}
+{#                                                    <div class="form-group">#}
+{#                                                        <input type="text" class="form-control" name = "NPName"  placeholder="名">#}
+{#                                                    </div>#}
+{#                                                    <div class="form-group">#}
+{#                                                        <input type="email" class="form-control" name = "NPEmail" placeholder="邮件">#}
+{#                                                    </div>#}
+{#                                                    <div class="form-group">#}
+{#                                                        <input type="text" class="form-control" name = "NPPhoneNumber" placeholder="手机号">#}
+{#                                                    </div>#}
+{#                                                    <div class="form-group">#}
+{#                                                        <input type="text" class="form-control" name="NPWeight" placeholder="体重">#}
+{#                                                    </div>#}
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" name = "NPSurname" placeholder="姓">
+                                                        <input type="text" class="form-control" name = "NPNum"  placeholder="编号">
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" name = "NPName"  placeholder="名">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="email" class="form-control" name = "NPEmail" placeholder="邮件">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" name = "NPPhoneNumber" placeholder="手机号">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" name="NPWeight" placeholder="体重">
+                                                        <input type="text" class="form-control" name = "NPName"  placeholder="姓名">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
+{#                                                    <div class="form-group">#}
+{#                                                        <div class="input-group">#}
+{#                                                            <input type="text" class="form-control" name = "NPBirth" placeholder="出生年月">#}
+{#                                                        </div>#}
+{#                                                    </div>#}
+{#                                                    <div class="form-group">#}
+{#                                                        <select class="form-control form-select" name="NPMarriage" >#}
+{#                                                            <option value="0"> 婚姻状态 </option>#}
+{#                                                            <option value="1">已婚</option>#}
+{#                                                            <option value="2">未婚</option>#}
+{#                                                        </select>#}
+{#                                                    </div>#}
                                                     <div class="form-group">
-                                                        <div class="input-group">
-                                                            <input type="text" class="form-control" name = "NPBirth" placeholder="出生年月">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <select class="form-control form-select" name="NPMarriage" >
-                                                            <option value="0"> 婚姻状态 </option>
-                                                            <option value="1">已婚</option>
-                                                            <option value="2">未婚</option>
-                                                        </select>
+                                                        <input type="text" class="form-control" name = "NPAge"  placeholder="年龄">
                                                     </div>
                                                     <div class="form-group">
                                                         <select class="form-control form-select" name="NPGender">
                                                             <option value="0">性别</option>
-                                                            <option value="1">男</option>
-                                                            <option value="2">女</option>
+                                                            <option value="男">男</option>
+                                                            <option value="女">女</option>
                                                         </select>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <select class="form-control form-select" name="NPBloodType">
-                                                            <option value="0">血型</option>
-                                                            <option value="1">A+</option>
-                                                            <option value="2">A-</option>
-                                                            <option value="3">B+</option>
-                                                            <option value="4">B-</option>
-                                                            <option value="5">O+</option>
-                                                            <option value="6">O-</option>
-                                                            <option value="7">AB+</option>
-                                                            <option value="8">AB-</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" name="NPHeight" placeholder="身高">
-                                                    </div>
+{#                                                    <div class="form-group">#}
+{#                                                        <select class="form-control form-select" name="NPBloodType">#}
+{#                                                            <option value="0">血型</option>#}
+{#                                                            <option value="1">A+</option>#}
+{#                                                            <option value="2">A-</option>#}
+{#                                                            <option value="3">B+</option>#}
+{#                                                            <option value="4">B-</option>#}
+{#                                                            <option value="5">O+</option>#}
+{#                                                            <option value="6">O-</option>#}
+{#                                                            <option value="7">AB+</option>#}
+{#                                                            <option value="8">AB-</option>#}
+{#                                                        </select>#}
+{#                                                    </div>#}
+{#                                                    <div class="form-group">#}
+{#                                                        <input type="text" class="form-control" name="NPHeight" placeholder="身高">#}
+{#                                                    </div>#}
                                                 </div>
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-xl-4">
-                                                    <div class="form-group">
-                                                        <textarea class="form-control" name="NPAddress" placeholder="地址" rows="4"></textarea>
-                                                    </div>
-                                                </div>
+{#                                                <div class="col-xl-4">#}
+{#                                                    <div class="form-group">#}
+{#                                                        <textarea class="form-control" name="NPAddress" placeholder="地址" rows="4"></textarea>#}
+{#                                                    </div>#}
+{#                                                </div>#}
                                                 <div class="col-xl-8">
-                                                    <div class="form-group">
-                                                        <textarea class="form-control" name="NPCase" placeholder="过往病史" rows="4"></textarea>
-                                                    </div>
+{#                                                    <div class="form-group">#}
+{#                                                        <textarea class="form-control" name="NPCase" placeholder="过往病史" rows="4"></textarea>#}
+{#                                                    </div>#}
                                                     <div class="form-group text-right">
                                                         <button type="submit" class="btn btn-primary float-end">保存</button>
                                                     </div>

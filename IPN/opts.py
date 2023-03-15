@@ -17,7 +17,7 @@ def parse_opts():
                         type=Path,
                         help='Annotation file path')
     parser.add_argument('--direct_index',
-                        default='10315',
+                        default='10004',
                         type=str,
                         help='判断是否是直接用图片传输')
     parser.add_argument('--result_path',

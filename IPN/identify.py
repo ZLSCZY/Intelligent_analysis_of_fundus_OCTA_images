@@ -79,6 +79,46 @@ def get_opt(video_path, result_path, resume_path, r_p):
     print(opt, "!!!!!!!!!!!!!")
     return opt
 
+# new
+def get_opt(video_path, result_path, resume_path, r_p, index):
+    opt = parse_opts()
+    opt.video_path = video_path
+    opt.result_path = result_path
+    opt.resume_path = resume_path
+    opt.root_path = r_p
+    opt.direct_index = str(index)
+    if opt.pretrain_path is not None:
+        opt.n_finetune_classes = opt.n_classes
+        opt.n_classes = opt.n_pretrain_classes
+
+    if opt.output_topk <= 0:
+        opt.output_topk = opt.n_classes
+
+    if opt.inference_batch_size == 0:
+        opt.inference_batch_size = opt.batch_size
+
+    opt.arch = '{}-{}'.format(opt.model, opt.model_depth)
+    opt.begin_epoch = 1
+    opt.mean, opt.std = get_mean_std(opt.value_scale, dataset=opt.mean_dataset)
+    opt.n_input_channels = 1
+    if opt.input_type == 'flow':
+        opt.n_input_channels = 2
+        opt.mean = opt.mean[:2]
+        opt.std = opt.std[:2]
+
+    if opt.distributed:
+        opt.dist_rank = int(os.environ["OMPI_COMM_WORLD_RANK"])
+
+        if opt.dist_rank == 0:
+            print(opt)
+            with open(opt.result_path, 'w') as opt_file:
+                json.dump(vars(opt), opt_file, default=json_serial)
+    else:
+        print(opt.result_path)
+        with open(opt.result_path, 'w') as opt_file:
+            json.dump(vars(opt), opt_file, default=json_serial)
+    print(opt, "!!!!!!!!!!!!!")
+    return opt
 
 def resume_model(resume_path, arch, model):
     print('loading checkpoint {} model'.format(resume_path))
@@ -419,6 +459,24 @@ def main_worker(index, opt):
 
 def identy(video_path, result_path, resume_path, root_path):
     opt = get_opt(video_path, result_path, resume_path, root_path)
+    opt.device = torch.device('cpu' if opt.no_cuda else 'cuda')
+    opt.device = torch.device('cuda')
+    print("torch")
+    print("device", opt.device, opt.no_cuda)
+    if not opt.no_cuda:
+        cudnn.benchmark = True
+    if opt.accimage:
+        torchvision.set_image_backend('accimage')
+    opt.ngpus_per_node = torch.cuda.device_count()
+    if opt.distributed:
+        opt.world_size = opt.ngpus_per_node * opt.world_size
+        mp.spawn(main_worker, nprocs=opt.ngpus_per_node, args=(opt,))
+    else:
+        main_worker(-1, opt)
+
+# new
+def identy(video_path, result_path, resume_path, root_path, index):
+    opt = get_opt(video_path, result_path, resume_path, root_path, index)
     opt.device = torch.device('cpu' if opt.no_cuda else 'cuda')
     opt.device = torch.device('cuda')
     print("torch")

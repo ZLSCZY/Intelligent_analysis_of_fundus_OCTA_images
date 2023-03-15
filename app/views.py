@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from Intelligent_analysis_of_fundus_OCTA_images.tools import unzip_file
-# from IPN.identify import identy
+from IPN.identify import identy
 from django.views.decorators.csrf import csrf_exempt
 import zipfile
 import sys
@@ -33,18 +33,18 @@ def register(request):
         content = {'account': request.POST['account'], 'password': request.POST['password']}
         if 'sent_code' in request.POST:
             if models.User.objects.filter(account=content['account']):
-                return render(request, 'page-register.html',{'account':"邮箱已注册"})
+                return render(request, 'page-register.html', {'account': "邮箱已注册"})
 
             vcode = random.randint(1001, 9999)
             print(vcode)
-            response = render(request, 'page-register.html',content)
-            response.set_cookie('vcode',str(vcode), 60 * 5)
-            response.set_cookie('register',content['account'],60*5)
+            response = render(request, 'page-register.html', content)
+            response.set_cookie('vcode', str(vcode), 60 * 5)
+            response.set_cookie('register', content['account'], 60 * 5)
             return response
 
         if 'new_acc' in request.POST:
             if models.User.objects.filter(content['account']):
-                return render(request, 'page-register.html',{'account':"邮箱已注册"})
+                return render(request, 'page-register.html', {'account': "邮箱已注册"})
             if request.COOKIES.get('vcode') == request.POST['in_code']:
                 if request.COOKIES.get('register') == request.POST['account']:
                     models.User.objects.create(account=content['account'], password=content['password'], identity=0,
@@ -66,17 +66,27 @@ def all_patient(req):
     return render(req, 'all-patients.html', {'case_list': case_list})
 
 
-def new_patient(req):
-    if req.method == 'GET':
-        return render(req, 'new-patient.html')
+def new_patient(request):
+    if request.method == 'GET':
+        return render(request, 'new-patient.html')
 
     else:
-        print(req.POST)
+
         # 中间应该添加数据库操作将数据存至数据库中，创建新的病人信息
+        user = models.User.objects.filter(account=request.session["info"]['account'])[0]
+
+        np = models.Case.objects.create(case_account=user,
+                                        case_number=request.POST['NPNum'],
+                                        case_name=request.POST['NPName'],
+                                        case_age=request.POST['NPAge'],
+                                        case_sex=request.POST['NPGender'])
+        # 存储当前病例在数据库中的主键id
+
+        request.session["curr_case_id"] = {'id': np.id}
 
         # file是图片文件在内存中
 
-        return redirect(new_diagnosis)
+        return redirect(upload)
 
     '''
     变量名对应的含义
@@ -100,32 +110,35 @@ def new_diagnosis(request):
     else:
         return
 
-def results(req):
-    return render(req, 'results.html')
 
-def upload(req):
+def results(request):
+    return render(request, 'results.html')
+
+
+def upload(request):
     """
     新增诊断，针对已经存在的患者，这一步还要收集当前的病人信息，将诊断结果给到该病人
     当前这个req不知道有没有这些信息，如果没有的话，后续再处理
-    :param req:
+    :param request:
     :return:
     """
-    file = req.FILES.get("uploadfile")
-
-    index = 1
+    #todo
+    file = request.FILES.get("uploadfile")
+    # index为该病例在数据库中的主键，所有相关文件夹都会以此命名
+    index = request.session["curr_case_id"]['id']
     if file is None:
-        return render(req, 'new-diagnosis.html', {'error': '请选择zip文件后再识别'})
+        return render(request, 'new-diagnosis.html', {'error': '请选择zip文件后再识别'})
     else:
         path = default_storage.save('tmp' + '\\' + str(index) + '.zip', ContentFile(file.read()))
         zip_src = sys.path[0] + '\\' + path
         zip_dst = sys.path[0] + '\\' + 'unzip\\test'
         if zipfile.is_zipfile(zip_src) == 0:
-            return render(req, 'new-diagnosis.html', {'error': '请选择zip文件后再识别'})
+            return render(request, 'new-diagnosis.html', {'error': '请选择zip文件后再识别'})
         else:
-            unzip_file(zip_src, zip_dst)
-            # identy(sys.path[0] + '\\' + 'unzip', sys.path[0] + '\\' + 'result\\' + str(index) + '.json',
-            #        sys.path[0] + '\\' + 'IPN\\result_path'
-            #                             '\\save_50.pth', sys.path[0] + '\\' + 'IPN')
+            unzip_file(zip_src, zip_dst, index)
+            identy(sys.path[0] + '\\' + 'unzip', sys.path[0] + '\\' + 'result\\' + str(index) + '.json',
+                   sys.path[0] + '\\' + 'IPN\\result_path'
+                                        '\\save_50.pth', sys.path[0] + '\\' + 'IPN', index)
 
     return HttpResponse("ok")
     # print(file)
