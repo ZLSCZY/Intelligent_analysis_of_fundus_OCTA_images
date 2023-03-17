@@ -1,3 +1,4 @@
+import json
 import random
 from django.shortcuts import render, redirect, HttpResponse
 from django.core.files.storage import default_storage
@@ -10,6 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 import zipfile
 import sys
 from app import models
+from datetime import datetime
 
 
 @csrf_exempt
@@ -132,7 +134,11 @@ def upload(request):
     #todo
     file = request.FILES.get("uploadfile")
     # index为该病例在数据库中的主键，所有相关文件夹都会以此命名
-    index = request.session["curr_case_id"]['id']
+    # 通过curr_case_id查询表Query_Record得到当前次数
+    curr_case_id = request.session["curr_case_id"]['id']
+    times = len(models.QueryRecord.objects.filter(case_id=curr_case_id)) + 1
+
+    index = str(curr_case_id) + '-' + str(times)
     if file is None:
         return render(request, 'new-diagnosis.html', {'error': '请选择zip文件后再识别'})
     else:
@@ -146,6 +152,26 @@ def upload(request):
             identy(sys.path[0] + '\\' + 'unzip', sys.path[0] + '\\' + 'result\\' + str(index) + '.json',
                    sys.path[0] + '\\' + 'IPN\\result_path'
                                         '\\save_50.pth', sys.path[0] + '\\' + 'IPN', index)
+            json_path = sys.path[0] + '\\' + 'result\\' + str(index) + '.json'
 
-    return HttpResponse("ok")
+            # 保存该次诊断记录
+            with open(json_path) as f:
+                record_dict = json.load(f)
+            qr = models.QueryRecord()
+            qr.qr_pc_id = index
+            qr.case_id = curr_case_id
+            for i in record_dict['results'][index]:
+                if i['label'] == 'AMD':
+                    qr.AMD = i['score']
+                elif i['label'] == 'NORMAL':
+                    qr.NORMAL = i['score']
+                elif i['label'] == 'DR':
+                    qr.DR = i['score']
+            qr.time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            qr.save()
+
+
+
+
+    return redirect(all_patient)
     # print(file)

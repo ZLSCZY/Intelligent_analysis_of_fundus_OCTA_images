@@ -26,3 +26,16 @@ class Case(models.Model):
     class Meta:
         managed = True
         db_table = 'case'
+
+
+class QueryRecord(models.Model):
+    qr_pc_id = models.CharField(primary_key=True, max_length=64)
+    time = models.DateTimeField(blank=True, null=True)
+    case_id = models.IntegerField()
+    AMD = models.FloatField()
+    DR = models.FloatField()
+    NORMAL = models.FloatField()
+
+    class Meta:
+        managed = True
+        db_table = 'Query_Record'
