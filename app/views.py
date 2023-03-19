@@ -66,13 +66,17 @@ def index(req):
     return render(req, 'index.html')
 
 
-def all_patient(req):
+def all_patient(request):
     # 获取当前医生账户名
-    account = req.session["info"]['account']
+    account = request.session["info"]['account']
     # 查询获得该医生下病人信息
     case_list = models.Case.objects.filter(case_account=account)
+    # 判断页面跳转的方式
+    request.session["from_new_patient"] = False
+    # 当前保存的id是否有效
+    request.session["id_valid"] = False
 
-    return render(req, 'all-patients.html', {'case_list': case_list})
+    return render(request, 'all-patients.html', {'case_list': case_list})
 
 
 def new_patient(request):
@@ -90,8 +94,9 @@ def new_patient(request):
                                         case_age=request.POST['NPAge'],
                                         case_sex=request.POST['NPGender'])
         # 存储当前病例在数据库中的主键id
-
         request.session["curr_case_id"] = {'id': np.id}
+        request.session["from_new_patient"] = True
+        request.session["id_valid"] = True
 
         # file是图片文件在内存中
 
@@ -113,11 +118,11 @@ def new_patient(request):
     '''
 
 
-def new_diagnosis(request):
-    if request.method == 'GET':
-        return render(request, 'new-diagnosis.html')
-    else:
-        return
+# def new_diagnosis(request):
+#     if request.method == 'GET':
+#         return render(request, 'new-diagnosis.html')
+#     else:
+#         return
 
 
 def results(request):
@@ -135,7 +140,15 @@ def upload(request):
     file = request.FILES.get("uploadfile")
     # index为该病例在数据库中的主键，所有相关文件夹都会以此命名
     # 通过curr_case_id查询表Query_Record得到当前次数
+
+    if not request.session["from_new_patient"]:
+        if not request.session["id_valid"]:
+            request.session["curr_case_id"]['id'] = request.GET.get('curr_case_id')
+            request.session["id_valid"] = True
+
+
     curr_case_id = request.session["curr_case_id"]['id']
+
     times = len(models.QueryRecord.objects.filter(case_id=curr_case_id)) + 1
 
     index = str(curr_case_id) + '-' + str(times)

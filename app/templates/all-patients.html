@@ -177,6 +177,7 @@
                                             <thead>
                                                 <tr>
                                                     <th></th>
+                                                    <th>id</th>
                                                     <th>编号</th>
                                                     <th>姓名</th>
                                                     <th>年龄</th>
@@ -190,6 +191,7 @@
                                                 {% for case in case_list %}
                                                     <tr>
                                                     <td></td>
+                                                    <td>{{ case.id }}</td>
                                                     <td>{{ case.case_number }}</td>
                                                     <td>{{ case.case_name }}</td>
                                                     <td>{{ case.case_age }}</td>
@@ -257,7 +259,7 @@
     <!-- Show data patient -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <!-- <div > -->
-        <form class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="myModalLabel"> Tiger Nixon </h5>
@@ -268,15 +270,16 @@
                     <div class="insertHere"></div> <!--信息来源于此-->
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button>
-                    <button type="submit" href="rapid-diagnosis.html" class="btn btn-primary">新增诊断</button>
+{#                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button>#}
+{#                    <button type="submit" href="rapid-diagnosis.html" class="btn btn-primary">新增诊断</button>#}
 
+                    <a href="/results/" class="btn btn-info float-end">诊断报告</a>
 
-                    <a href="results.html" class="btn btn-info float-end">诊断报告</a>
-                    <a href="new-diagnosis.html" class="btn btn-primary float-end">新增诊断</a>
+                    <div class="newDiagnosis"></div>
+
                 </div>
             </div>
-        </form>
+        </div>
     </div>
     <!-- End Show data patient -->
 

@@ -46,10 +46,10 @@ let ex2 = jQuery('#example2').DataTable({
     //     "targets": [12],
     //     "visible": false
     // },]
-    // "columnDefs": [{
-    //     "targets": [3],
-    //     "visible": false
-    // },]
+    "columnDefs": [{
+        "targets": [1],
+        "visible": false
+    },]
 
 });
 
@@ -60,12 +60,24 @@ $('#example2 tbody').on('click', '.vue', function () {
     var data = ex2.row($(this).parents('tr')).data();
     $('.insertHere').html(
         // Adding and structuring the full data
-           '<table class="table table-striped table-responsive-sm modalShowTable" width="100%"><tbody><tr><td>编号<td><td>' + data[1] + '</td></tr><tr><td>姓名<td><td>' + data[2] + '</td></tr><tr><td>年龄<td><td>' + data[3] + '</td></tr><tr><td>性别<td><td>' + data[4] + '</td></tr></tbody></table>'
-
+           '<table class="table table-striped table-responsive-sm modalShowTable" width="100%"><tbody><tr><td>编号<td><td>' + data[2] + '</td></tr><tr><td>姓名<td><td>' + data[3] + '</td></tr><tr><td>年龄<td><td>' + data[4] + '</td></tr><tr><td>性别<td><td>' + data[5] + '</td></tr></tbody></table>'
     );
     // calling the bootstrap modal
     $('#myModal').modal('show');
+});
 
+$('#example2 tbody').on('click', '.vue', function (){
+    // 获取目标病例的id
+    var id = ex2.row($(this).parents('tr')).data()[1];
+    $('.newDiagnosis').html(
+        // '<form action="/new_diagnosis/" method="get"><input type="hidden" name="curr_case_id" value=' + id + '><input type="submit" class="btn btn-info float-end" value="新增诊断"></form>'
+        '                    <form action="/new_diagnosis/" method="get">\n' +
+        '                        <label>\n' +
+        '                            <input type="hidden" name="curr_case_id" value="' + id + '">\n' +
+        '                        </label>\n' +
+        '                            <input type="submit" class="btn btn-info float-end" value="新增诊断">\n' +
+        '                    </form>'
+    );
 });
 
 // Delete Row Datatable
