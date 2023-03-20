@@ -143,7 +143,7 @@ def upload(request):
 
     if not request.session["from_new_patient"]:
         if not request.session["id_valid"]:
-            request.session["curr_case_id"]['id'] = request.GET.get('curr_case_id')
+            request.session["curr_case_id"] = {'id': request.GET.get('curr_case_id')}
             request.session["id_valid"] = True
 
 
