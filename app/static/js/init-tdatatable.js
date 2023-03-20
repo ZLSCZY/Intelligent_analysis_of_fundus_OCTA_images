@@ -69,13 +69,26 @@ $('#example2 tbody').on('click', '.vue', function () {
 $('#example2 tbody').on('click', '.vue', function (){
     // 获取目标病例的id
     var id = ex2.row($(this).parents('tr')).data()[1];
+    // 用隐藏表单提交
     $('.newDiagnosis').html(
-        // '<form action="/new_diagnosis/" method="get"><input type="hidden" name="curr_case_id" value=' + id + '><input type="submit" class="btn btn-info float-end" value="新增诊断"></form>'
         '                    <form action="/new_diagnosis/" method="get">\n' +
         '                        <label>\n' +
         '                            <input type="hidden" name="curr_case_id" value="' + id + '">\n' +
         '                        </label>\n' +
         '                            <input type="submit" class="btn btn-info float-end" value="新增诊断">\n' +
+        '                    </form>'
+    );
+});
+
+$('#example2 tbody').on('click', '.vue', function (){
+    // 获取目标病例的id
+    var id = ex2.row($(this).parents('tr')).data()[1];
+    $('.queryRecord').html(
+        '                    <form action="/results/" method="get">\n' +
+        '                        <label>\n' +
+        '                            <input type="hidden" name="curr_case_id" value="' + id + '">\n' +
+        '                        </label>\n' +
+        '                            <input type="submit" class="btn btn-info float-end" value="诊断报告">\n' +
         '                    </form>'
     );
 });

@@ -126,7 +126,22 @@ def new_patient(request):
 
 
 def results(request):
-    return render(request, 'results.html')
+    # 类似于诊断，先获取当前病例id
+    curr_case_id = request.GET.get('curr_case_id')
+    records = models.QueryRecord.objects.filter(case_id=curr_case_id)
+    result = {'AMD': 0, 'DR': 0, 'NORMAL': 0}
+    if len(records) == 0:
+        result = {'AMD': 'None', 'DR': 'None', 'NORMAL': 'None'}
+    else:
+        for i in records:
+            result['AMD'] += float(i.AMD)
+            result['DR'] += float(i.DR)
+            result['NORMAL'] += float(i.NORMAL)
+        result['AMD'] /= len(records)
+        result['DR'] /= len(records)
+        result['NORMAL'] /= len(records)
+
+    return render(request, 'results.html', {'records': records, 'result': result})
 
 
 def upload(request):
@@ -136,7 +151,7 @@ def upload(request):
     :param request:
     :return:
     """
-    #todo
+
     file = request.FILES.get("uploadfile")
     # index为该病例在数据库中的主键，所有相关文件夹都会以此命名
     # 通过curr_case_id查询表Query_Record得到当前次数
@@ -145,7 +160,6 @@ def upload(request):
         if not request.session["id_valid"]:
             request.session["curr_case_id"] = {'id': request.GET.get('curr_case_id')}
             request.session["id_valid"] = True
-
 
     curr_case_id = request.session["curr_case_id"]['id']
 
