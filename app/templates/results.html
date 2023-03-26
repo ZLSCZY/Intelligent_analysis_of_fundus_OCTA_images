@@ -220,7 +220,6 @@
                                                     <div class="card shadow widget1">
                                                         <div class="card-header">
                                                             <h4 class="card-title">Result table</h4>
-
                                                         </div>
                                                         <div class="card-body">
                                                             <canvas id="chart1" width="100%" height="40"></canvas>
@@ -264,8 +263,139 @@
 
      <!-- Chart js -->
     <script src="../static/plugins/chart/chart/Chart.min.js"></script>
-    <script src="../static/js/charts-custom.js"></script>
+    <script>
+        var chartactivity = document.getElementById('chart1').getContext("2d");
+        var gradientStroke = chartactivity.createLinearGradient(200, 0, 100, 0);
+        gradientStroke.addColorStop(0, "rgba(58, 233, 245, 1)");
+        gradientStroke.addColorStop(1, "rgba(18, 216, 227, 1)");
 
+        var gradientStroke2 = chartactivity.createLinearGradient(200, 0, 100, 0);
+        gradientStroke2.addColorStop(0, "rgba(255, 92, 203, 1)");
+        gradientStroke2.addColorStop(1, "rgba(253, 133, 168, 1)");
+
+        var gradientStroke3 = chartactivity.createLinearGradient(200, 0, 100, 0);
+        gradientStroke3.addColorStop(0, "rgba(80, 152, 100, 1)");
+        gradientStroke3.addColorStop(1, "rgba(90, 200, 168, 1)");
+
+        var gradientFill = chartactivity.createLinearGradient(0, 0, 0, 350);
+        gradientFill.addColorStop(0, "rgba(128, 182, 244, 0.5)");
+        gradientFill.addColorStop(1, "rgba(128, 182, 244, 0)");
+
+        var gradientFill2 = chartactivity.createLinearGradient(0, 0, 0, 350);
+        gradientFill2.addColorStop(0, "rgba(255, 91, 204, 0.5)");
+        gradientFill2.addColorStop(1, "rgba(255, 91, 204, 0)");
+
+        var gradientFill3 = chartactivity.createLinearGradient(0, 0, 0, 350);
+        gradientFill2.addColorStop(0, "rgba(204, 255, 204, 0.5)");
+        gradientFill2.addColorStop(1, "rgba(204, 255, 204, 0)");
+
+        var labels = []
+        var DR = []
+        var AMD = []
+        var NORMAL = []
+
+        {% for record in records %}
+            DR.push(Number({{ record.DR }}))
+            AMD.push(Number({{ record.AMD }}))
+            NORMAL.push(Number({{ record.NORMAL }}))
+        {% endfor %}
+
+        for(i = 0; i < {{ records.count }}; i++){
+            labels.push(i + 1)
+        }
+
+        var ActivityChart = new Chart(chartactivity, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: "DR",
+                    borderColor: gradientStroke,
+                    pointBorderColor: gradientStroke,
+                    pointBackgroundColor: "rgba(255, 255, 255, 1)",
+                    pointHoverBackgroundColor: "rgba(128, 182, 244, 1)",
+                    pointHoverBorderColor: gradientStroke,
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 3,
+                    pointHoverBorderWidth: 1,
+                    pointRadius: 3,
+                    fill: false,
+                    backgroundColor: gradientFill,
+                    borderWidth: 2,
+                    data: DR
+                }, {
+                    label: "AMD",
+                    borderColor: gradientStroke2,
+                    pointBorderColor: gradientStroke2,
+                    pointBackgroundColor: "rgba(255, 255, 255, 1)",
+                    pointHoverBackgroundColor: "rgba(128, 182, 244, 1)",
+                    pointHoverBorderColor: gradientStroke2,
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 3,
+                    pointHoverBorderWidth: 1,
+                    pointRadius: 3,
+                    fill: false,
+                    backgroundColor: gradientFill2,
+                    borderWidth: 2,
+                    data: AMD
+                }, {
+                    label: "NORMAL",
+                    borderColor: gradientStroke3,
+                    pointBorderColor: gradientStroke3,
+                    pointBackgroundColor: "rgba(255, 255, 255, 1)",
+                    pointHoverBackgroundColor: "rgba(128, 182, 244, 1)",
+                    pointHoverBorderColor: gradientStroke3,
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 3,
+                    pointHoverBorderWidth: 1,
+                    pointRadius: 3,
+                    fill: true,
+                    backgroundColor: gradientFill3,
+                    borderWidth: 2,
+                    data: NORMAL
+                }
+
+
+                ]
+            },
+            options: {
+                legend: {
+                    position: "top",
+                    labels: {
+                        boxWidth: 15,
+                        padding: 15
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            fontColor: "rgba(0,0,0,0.5)",
+                            fontStyle: "bold",
+                            beginAtZero: true,
+                            maxTicksLimit: 5,
+                            padding: 20
+                        },
+                        gridLines: {
+                            drawTicks: false,
+                            display: false
+                        }
+
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            zeroLineColor: "transparent"
+                        },
+                        ticks: {
+                            padding: 20,
+                            fontColor: "rgba(0,0,0,0.5)",
+                            fontStyle: "bold"
+                        }
+                    }]
+                }
+            }
+        });
+
+    </script>
     <!-- Main Custom JQuery -->
     <script src="../static/js/toggleFullScreen.js"></script>
     <script src="../static/js/main.js"></script>

@@ -26,6 +26,8 @@ var gradientFill3 = chartactivity.createLinearGradient(0, 0, 0, 350);
 gradientFill2.addColorStop(0, "rgba(204, 255, 204, 0.5)");
 gradientFill2.addColorStop(1, "rgba(204, 255, 204, 0)");
 
+
+
 var ActivityChart = new Chart(chartactivity, {
     type: 'line',
     data: {

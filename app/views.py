@@ -130,10 +130,13 @@ def results(request):
     curr_case_id = request.GET.get('curr_case_id')
     records = models.QueryRecord.objects.filter(case_id=curr_case_id)
     result = {'AMD': 0, 'DR': 0, 'NORMAL': 0}
+
+
     if len(records) == 0:
         result = {'AMD': 'None', 'DR': 'None', 'NORMAL': 'None'}
     else:
         for i in records:
+
             result['AMD'] += float(i.AMD)
             result['DR'] += float(i.DR)
             result['NORMAL'] += float(i.NORMAL)
