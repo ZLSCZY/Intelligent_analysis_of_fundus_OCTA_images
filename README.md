@@ -24,8 +24,8 @@ app与Intelligent_analysis_of_fundus_OCTA_images目录是原型系统开发的�
 
 为了实现将DR与AMD进行分类，并达到良好的效果，我们设计了TCAM-Resnet，该网络以
 ResNet为基础，加入了三维卷积注意力机制（TCAM），该注意力机制聚焦于视网膜血管信息，
-能够提取三维图像的血管权重信息。本研究中使用的数据集来自于Image Projection Network: 3D to 2D Image Segmentation in OCTA Images
-这篇论文，IPN投影网络本是将三维OCTA图片进行投影，获得二维血管图片。我们研究中IPN投影网络进行改造
+能够提取三维图像的血管权重信息。本研究中使用的数据集来自于Image Projection Network: 3D to 2D Image Segmentation in OCTA Images 原文见 https://ieeexplore.ieee.org/document/9085991 
+在这篇论文中，IPN投影网络本是将三维OCTA图片进行投影，获得二维血管图片。我们在研究中IPN投影网络进行改造
 获得能够提取三维OCT图像血管信息的注意力机制，使得整个网络的准确率得到极大提升，TCAM的加入，使Resnet3d在疾病分类任务上，获得了更高的精度，AMD，DR，NORMAL三分类准确率达到83.3%，AMD，NORMAL二分类准确率达到98%。
 
 
