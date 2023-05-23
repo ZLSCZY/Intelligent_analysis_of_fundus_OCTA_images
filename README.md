@@ -1,5 +1,5 @@
 # 项目简介
-
+在2022 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)（CCF B）主会发表会议论文一篇，原文见链接 https://ieeexplore.ieee.org/document/9995218 。
 开发了一套原型系统，可以供给相关配套设备医院使用，界面如下图。
 ![img.png](img.png)
 
