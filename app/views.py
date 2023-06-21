@@ -12,7 +12,8 @@ import zipfile
 import sys
 from app import models
 from datetime import datetime
-
+from decimal import Decimal
+from Heatmap.grad_cam import generator_heatmap
 
 @csrf_exempt
 # Create your views here.
@@ -78,6 +79,9 @@ def all_patient(request):
 
     return render(request, 'all-patients.html', {'case_list': case_list})
 
+def del_patient(request):
+    models.Case.objects.get(id=request.GET['id']).delete()
+    return redirect(all_patient)
 
 def new_patient(request):
     if request.method == 'GET':
@@ -92,7 +96,12 @@ def new_patient(request):
                                         case_number=request.POST['NPNum'],
                                         case_name=request.POST['NPName'],
                                         case_age=request.POST['NPAge'],
-                                        case_sex=request.POST['NPGender'])
+                                        case_sex=request.POST['NPGender'],
+                                        case_height=request.POST['NPHeight'],
+                                        case_weight=request.POST['NPWeight'],
+                                        case_blood_type=request.POST['NPBloodType'],
+                                        case_history=request.POST['NPCase'],
+                                        case_note=request.POST['NPNote'])
         # 存储当前病例在数据库中的主键id
         request.session["curr_case_id"] = {'id': np.id}
         request.session["from_new_patient"] = True
@@ -100,7 +109,7 @@ def new_patient(request):
 
         # file是图片文件在内存中
 
-        return redirect(upload)
+        return redirect(all_patient)
 
     '''
     变量名对应的含义
@@ -135,16 +144,22 @@ def results(request):
     if len(records) == 0:
         result = {'AMD': 'None', 'DR': 'None', 'NORMAL': 'None'}
     else:
+        pic_index = records[len(records)-1].qr_pc_id
         for i in records:
-
             result['AMD'] += float(i.AMD)
             result['DR'] += float(i.DR)
             result['NORMAL'] += float(i.NORMAL)
         result['AMD'] /= len(records)
+        result['AMD'] = Decimal(result['AMD']).quantize(Decimal("0.01"), rounding="ROUND_HALF_UP")
         result['DR'] /= len(records)
+        result['DR'] = Decimal(result['DR']).quantize(Decimal("0.01"), rounding="ROUND_HALF_UP")
         result['NORMAL'] /= len(records)
+        result['NORMAL'] = Decimal(result['NORMAL']).quantize(Decimal("0.01"), rounding="ROUND_HALF_UP")
 
-    return render(request, 'results.html', {'records': records, 'result': result})
+    return render(request, 'results.html', {'records': records, 'result': result,
+                                            'pic1': '../static/heatmaps/' + pic_index + '-1.png',
+                                            'pic2': '../static/heatmaps/' + pic_index + '-2.png',
+                                            'pic3': '../static/heatmaps/' + pic_index + '-3.png'})
 
 
 def upload(request):
@@ -184,6 +199,7 @@ def upload(request):
                                         '\\save_50.pth', sys.path[0] + '\\' + 'IPN', index)
             json_path = sys.path[0] + '\\' + 'result\\' + str(index) + '.json'
 
+
             # 保存该次诊断记录
             with open(json_path) as f:
                 record_dict = json.load(f)
@@ -192,16 +208,35 @@ def upload(request):
             qr.case_id = curr_case_id
             for i in record_dict['results'][index]:
                 if i['label'] == 'AMD':
-                    qr.AMD = i['score']
+                    qr.AMD = Decimal(i['score']).quantize(Decimal("0.01"), rounding="ROUND_HALF_UP")
                 elif i['label'] == 'NORMAL':
-                    qr.NORMAL = i['score']
+                    qr.NORMAL = Decimal(i['score']).quantize(Decimal("0.01"), rounding="ROUND_HALF_UP")
                 elif i['label'] == 'DR':
-                    qr.DR = i['score']
+                    qr.DR = Decimal(i['score']).quantize(Decimal("0.01"), rounding="ROUND_HALF_UP")
             qr.time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             qr.save()
+
+            generator_heatmap(1, zip_dst + '\\' + index + '\\25.jpg', index + '-1')
+            generator_heatmap(2, zip_dst + '\\' + index + '\\50.jpg', index + '-2')
+            generator_heatmap(3, zip_dst + '\\' + index + '\\75.jpg', index + '-3')
 
 
 
 
     return redirect(all_patient)
     # print(file)
+
+
+def update_patient(request):
+    case = models.Case.objects.get(id=request.GET['id'])
+    case.case_name = request.GET['NPName']
+    case.case_number = request.GET['NPNum']
+    case.case_age = request.GET['NPAge']
+    case.case_sex = request.GET['NPGender']
+    case.case_height = request.GET['NPHeight']
+    case.case_weight = request.GET['NPWeight']
+    case.case_history = request.GET['NPCase']
+    case.case_blood_type = request.GET['NPBloodType']
+    case.case_note = request.GET['NPNote']
+    case.save()
+    return redirect(all_patient)

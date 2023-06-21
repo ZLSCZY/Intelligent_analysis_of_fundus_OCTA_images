@@ -23,6 +23,12 @@ class Case(models.Model):
     case_age = models.PositiveSmallIntegerField(blank=True, null=True)
     case_sex = models.CharField(max_length=2, blank=True, null=True)
 
+    case_weight = models.FloatField(blank=True, null=True)
+    case_height = models.FloatField(blank=True, null=True)
+    case_blood_type = models.CharField(max_length=255, blank=True, null=True)
+    case_history = models.CharField(max_length=255, blank=True, null=True)
+    case_note = models.CharField(max_length=255, blank=True, null=True)
+
     class Meta:
         managed = True
         db_table = 'case'

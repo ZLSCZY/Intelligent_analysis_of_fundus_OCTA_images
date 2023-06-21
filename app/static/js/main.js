@@ -1,10 +1,16 @@
-$(function() {
+onload = () => {
+    jQuery("aside.left-panel").toggleClass("collapsed");
+    jQuery("body").toggleClass("sidebar-toggled");
+    jQuery("#main-wrapper").toggleClass("menu-toggle");
+}
+
+$(function () {
 
     // ========================================================================= //
     //    Add remove class active has menu
     // ========================================================================= //
 
-    jQuery(".has-submenu").click(function() {
+    jQuery(".has-submenu").click(function () {
         jQuery(".has-submenu").removeClass("active");
         $(this).toggleClass("active");
     });
@@ -13,7 +19,7 @@ $(function() {
     //    Toggle Aside Menu
     // ========================================================================= //
 
-    jQuery(".hamburger").click(function() {
+    jQuery(".hamburger").click(function () {
         jQuery("aside.left-panel").toggleClass("collapsed");
         jQuery("body").toggleClass("sidebar-toggled");
         jQuery("#main-wrapper").toggleClass("menu-toggle");
@@ -53,7 +59,7 @@ $(function() {
 
     resize();
 
-    jQuery(window).resize(function() {
+    jQuery(window).resize(function () {
         resize();
     })
 
@@ -76,7 +82,7 @@ function showPreview(event) {
 //   Preview Pictures
 // ========================================================================= //
 
-$(".widget-3 input[type='file']").on("change", function() {
+$(".widget-3 input[type='file']").on("change", function () {
     $(".widget-3").addClass("custom-text");
 });
 
@@ -87,7 +93,7 @@ $(".widget-3 input[type='file']").on("change", function() {
 
 $('input[name="daterange"]').daterangepicker({
     opens: 'right'
-}, function(start, end, label) {
+}, function (start, end, label) {
     console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
 });
 
@@ -95,7 +101,7 @@ $('input[name="daterange"]').daterangepicker({
 // ========================================================================= //
 //   Button Add Drugs
 // ========================================================================= //
-$('#butonAddDrug').click(function() {
+$('#butonAddDrug').click(function () {
     var structure = `   
         <form id="testmed">
             <div class="row">
@@ -131,7 +137,7 @@ $('#butonAddDrug').click(function() {
 //  Button Add Test
 // ========================================================================= //
 
-$('#butonAddTest').click(function() {
+$('#butonAddTest').click(function () {
     var structure = `<form>
     <div class="row">
         <div class="col-md-6">
@@ -173,23 +179,22 @@ $('#butonAddTest').click(function() {
 //  Change dates patient
 // ========================================================================= //
 
-$(function() {
+$(function () {
     $('input[name="dates"]').daterangepicker({
         singleDatePicker: true,
         showDropdowns: true,
         minYear: 1901,
         maxYear: parseInt(moment().format('YYYY'), 10)
-    }, function(start, end, label) {
+    }, function (start, end, label) {
         var years = moment().diff(start, 'years');
     });
 });
 
 
-
 // ========================================================================= //
 //   refrech select picker inside modal
 // ========================================================================= //
-$('.selectRefresh').on('shown', function() {
+$('.selectRefresh').on('shown', function () {
     $('.selectpicker').selectpicker('refresh');
 });
 
@@ -207,14 +212,14 @@ function resize() {
 
 resize();
 
-jQuery(window).resize(function() {
+jQuery(window).resize(function () {
     resize();
 })
 
 
-jQuery(function($) {
+jQuery(function ($) {
     var path = window.location.href;
-    $('ul li a').each(function() {
+    $('ul li a').each(function () {
         if (window.matchMedia("(max-width: 1199px) and (max-width: 1199px)").matches) {
             if (this.href === path) {
                 if ($(this).parent().hasClass("has-submenu")) {
@@ -224,6 +229,6 @@ jQuery(function($) {
                 }
             }
         }
-        
+
     });
 });

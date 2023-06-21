@@ -1712,6 +1712,7 @@ Buttons
 * Side Menu
 ***************************/
 .navigation {
+  display: block;
   margin: 40px 0px;
   margin-top: 0; }
   .navigation .main-menu {
@@ -2389,10 +2390,10 @@ table.dataTable {
     color: #2b2b2b;
     font-weight: 500;
     padding: 12px; }
-  table.dataTable thead .sorting {
-    background-image: url(http://tabib.inaikas.com/assets/images/datatables/sort_both.png); }
-  table.dataTable thead .sorting_asc {
-    background-image: url(http://tabib.inaikas.com/assets/images/datatables/sort_asc.png); }
+  /*table.dataTable thead .sorting {*/
+  /*  background-image: url(http://tabib.inaikas.com/assets/images/datatables/sort_both.png); }*/
+  /*table.dataTable thead .sorting_asc {*/
+  /*  background-image: url(http://tabib.inaikas.com/assets/images/datatables/sort_asc.png); }*/
   table.dataTable thead .sorting_desc {
     background-image: url(http://tabib.inaikas.com/assets/images/datatables/sort_desc.png); }
   table.dataTable thead .sorting:after,

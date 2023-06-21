@@ -5,233 +5,303 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tabib Apps web | Admin Dashboard Template</title>
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" href="../static/images/favicon-32x32.png">
+    <title>患者列表</title>
     <!-- Base Styling  -->
     <link rel="stylesheet" href="../static/main/css/fonts.css">
     <link rel="stylesheet" href="../static/main/css/style.css">
 </head>
 
 <body>
-    <div id="main-wrapper" class="show">
+<div id="main-wrapper" class="show">
 
-        <!-- start logo components 开始的名字与logo -->
-        <div class="nav-header">
-            <div class="brand-logo">
-                <a href="index.html"> <img class="logo-tabib" src="../static/images/logo3.png" alt=""></a>
-                <a href="index.html"><img class="brand-title" src="../static/images/logo4.png" alt=""></a>
+    <!-- start logo components 开始的名字与logo -->
+    <div class="nav-header">
+        <div class="brand-logo">
+            <a href="index.html"> <img class="logo-tabib" src="../static/images/logo3.png" alt=""></a>
+            <a href="index.html"><img class="brand-title" src="../static/images/logo4.png" alt=""></a>
+        </div>
+    </div>
+    <!-- End logo components -->
+
+
+    <!-- start section sidebar -->
+    <aside class="left-panel nicescroll-box">
+        <nav class="navigation">
+            <ul class="list-unstyled main-menu">
+                <li class="has-submenu active">
+                    <a href="index.html">
+                        <i class="fas fa-th-large"></i>
+                        <span class="nav-label">医生首页</span>
+                    </a>
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#" class="has-arrow mm-collapsed">
+                        <i class="fas fa-users"></i>
+                        <span class="nav-label">患者情况</span>
+                    </a>
+                    <ul class="list-unstyled mm-collapse">
+                        <li><a href="/new_patient/">新增患者</a></li>
+                        <li><a href="/all_patient/">所有患者</a></li>
+                    </ul>
+                </li>
+
+
+                <li class="has-submenu active">
+                    <a href="#">
+                        <i class="fas fa-cog"></i>
+                        <span class="nav-label">帮助</span>
+                    </a>
+
+                </li>
+
+            </ul>
+        </nav>
+        <div class="sidebar-widgets">
+            <div class="top-sidebar box-shadow mx-25 m-b-30 p-b-20 text-center">
+                <a href="rapid-diagnosis.html"> <!--应该是快速诊断的网页url-->
+                    <img src="../static/images/appointement.svg" class="side-img" alt="img">
+                </a>
+                <a href="rapid-diagnosis.html">
+                    <h4 class="text-primary mb-0">快速诊断</h4>
+                </a>
+            </div>
+            <div class="copyright text-center">
+                <p class="mb-0"> 首页</p>
+                <p class="mb-0"> © 2023 </p>
             </div>
         </div>
-        <!-- End logo components -->
+    </aside>
+    <!-- End section sidebar -->
 
 
-        <!-- start section sidebar -->
-        <aside class="left-panel nicescroll-box">
-            <nav class="navigation">
-                <ul class="list-unstyled main-menu">
-                    <li class="has-submenu active">
-                        <a href="index.html">
-                            <i class="fas fa-th-large"></i>
-                            <span class="nav-label">医生首页</span>
-                        </a>
-                    </li>
-
-                    <li class="has-submenu">
-                        <a href="#" class="has-arrow mm-collapsed">
-                            <i class="fas fa-users"></i>
-                            <span class="nav-label">患者情况</span>
-                        </a>
-                        <ul class="list-unstyled mm-collapse">
-                            <li><a href="/new_patient/">新增患者</a></li>
-                            <li><a href="/all_patient/">所有患者</a></li>
-                        </ul>
-                    </li>
-
-
-                    <li class="has-submenu active">
-                        <a href="#" >
-                            <i class="fas fa-cog"></i>
-                            <span class="nav-label">帮助</span>
-                        </a>
-
-                    </li>
-
-                </ul>
-            </nav>
-            <div class="sidebar-widgets">
-                <div class="top-sidebar box-shadow mx-25 m-b-30 p-b-20 text-center">
-                    <a href="rapid-diagnosis.html"> <!--应该是快速诊断的网页url-->
-                        <img src="../static/images/appointement.svg" class="side-img" alt="img">
-                    </a>
-                    <a href="rapid-diagnosis.html">
-                        <h4 class="text-primary mb-0">快速诊断</h4>
-                    </a>
+    <!-- start section header -->
+    <div class="header">
+        <header class="top-head container-fluid">
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
                 </div>
-                <div class="copyright text-center">
-                    <p class="mb-0"> 首页</p>
-                    <p class="mb-0"> © 2023 </p>
+                <div class="left-header content-header__menu">
+                    <ul class="list-unstyled">
+                        <li class="nav-link btn">
+                            <a href="rapid-diagnosis.html"><i class="far fa-eye"></i> <span> 快速诊断</span></a>
+                        </li>
+                        <li class="nav-link btn">
+                            <a href="/new_patient/"><i class="far fa-file-alt"></i> <span> 新增患者</span></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </aside>
-        <!-- End section sidebar -->
-
-
-        <!-- start section header -->
-        <div class="header">
-            <header class="top-head container-fluid">
-                <div class="nav-control">
-                    <div class="hamburger">
-                        <span class="line"></span><span class="line"></span><span class="line"></span>
-                    </div>
-                    <div class="left-header content-header__menu">
-                        <ul class="list-unstyled">
-                            <li class="nav-link btn">
-                                <a href="rapid-diagnosis.html"><i class="far fa-eye"></i> <span> 快速诊断</span></a>
-                            </li>
-                            <li class="nav-link btn">
-                                <a href="/new_patient/"><i class="far fa-file-alt"></i> <span> 新增患者</span></a>
-                            </li>
-                        </ul>
+            <div class="header-right">
+                <div class="fullscreen notification_dropdown">
+                    <div class="full">
+                        <a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()">
+                            <i class="fas fa-expand"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="header-right">
-                    <div class="fullscreen notification_dropdown">
-                        <div class="full">
-                            <a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()">
-                                <i class="fas fa-expand"></i>
+
+                <div class="my-account-wrapper">
+                    <div class="account-wrapper">
+                        <div class="account-control">
+                            <a class="login header-profile" href="#" title="Sign in">
+                                <div class="header-info">
+                                    <span>admin@qq.com</span>
+                                    <small>账户</small>
+                                </div>
+                                <img src="../static/images/client.jpg" alt="people">
                             </a>
-                        </div>
-                    </div>
-
-                    <div class="my-account-wrapper">
-                        <div class="account-wrapper">
-                            <div class="account-control">
-                                <a class="login header-profile" href="#" title="Sign in">
-                                    <div class="header-info">
-                                        <span>Roberts医生</span>
-                                        <small>账户</small>
-                                    </div>
-                                    <img src="../static/images/client.jpg" alt="people">
-                                </a>
-                                <div class="account-dropdown-form dropdown-container">
-                                    <div class="form-content">
-                                        <a href="doctor-settings.html">
-                                            <i class="far fa-user"></i>
-                                            <span class="ml-2">简介</span>
-                                        </a>
-                                        <!--
-                                        <a href="#">
-                                            <i class="far fa-envelope"></i>
-                                            <span class="ml-2">Inbox</span>
-                                        </a>
-                                        -->
-                                        <a href="page-login.html">
-                                            <i class="fas fa-sign-in-alt"></i>
-                                            <span class="ml-2">退出 </span>
-                                        </a>
-                                    </div>
+                            <div class="account-dropdown-form dropdown-container">
+                                <div class="form-content">
+                                    <a href="doctor-settings.html">
+                                        <i class="far fa-user"></i>
+                                        <span class="ml-2">简介</span>
+                                    </a>
+                                    <!--
+                                    <a href="#">
+                                        <i class="far fa-envelope"></i>
+                                        <span class="ml-2">Inbox</span>
+                                    </a>
+                                    -->
+                                    <a href="page-login.html">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                        <span class="ml-2">退出 </span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </header>
-        </div>
-        <!-- End section header -->
+            </div>
+        </header>
+    </div>
+    <!-- End section header -->
 
 
-        <!-- start section content -->
-        <div class="content-body">
-            <div class="warper container-fluid">
-                <div class="all-patients main_container">
-                    <div class="row page-titles mx-0">
-                        <div class="col-sm-6 p-md-0">
-                            <div class="welcome-text">
-                                <h4 class="text-primary">所有病人</h4>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active"><a href="/all_patient/">all Patient</a></li>
-                            </ol>
+    <!-- start section content -->
+    <div class="content-body">
+        <div class="warper container-fluid">
+            <div class="all-patients main_container">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4 class="text-primary">所有病人</h4>
                         </div>
                     </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active"><a href="/all_patient/">all Patient</a></li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-header fix-card">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <h4 class="card-title"> 病人列表 </h4>
+                                    </div>
+                                    <div class="col-4 float-end">
+                                        <a href="/new_patient/" class="btn btn-primary float-end">新增患者</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="example2" class="display nowrap">
+                                        <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>id</th>
+                                            <th>编号</th>
+                                            <th>姓名</th>
+                                            <th>年龄</th>
+                                            <th>性别</th>
+                                            <th>身高</th>
+                                            <th>体重</th>
+                                            <th>血型</th>
+                                            <th>相关病例</th>
+                                            <th>备注</th>
+                                            <th>操作</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {#此处为访问数据库所得病例数据#}
+                                        {% for case in case_list %}
+                                            <tr>
+                                                <td></td>
+                                                <td>{{ case.id }}</td>
+                                                <td>{{ case.case_number }}</td>
+                                                <td>{{ case.case_name }}</td>
+                                                <td>{{ case.case_age }}</td>
+                                                <td>{{ case.case_sex }}</td>
+                                                <td>{{ case.case_height }}</td>
+                                                <td>{{ case.case_weight }}</td>
+                                                <td>{{ case.case_blood_type }}</td>
+                                                <td>{{ case.case_history }}</td>
+                                                <td>{{ case.case_note }}</td>
+
+                                                <td>
+                                                    <a class='mr-4 vue'>
+                                                        <span class='fa fa-eye' aria-hidden='true'></span>
+                                                    </a>
+                                                    <a data-bs-toggle='modal' data-bs-target='#modal-edit' class='mr-4 update'>
+                                                        <span class='fas fa-pencil-alt'></span>
+                                                    </a>
+                                                    <a class='mr-4 delet'>
+                                                        <span class='fas fa-trash-alt'></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                                    <button type="button" class="btn btn-primary">保存修改</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End section content -->
+
+
+</div>
+
+
+<!-- Show data patient -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <!-- <div > -->
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">病例信息</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="insertHere"></div> <!--信息来源于此-->
+            </div>
+            <div class="modal-footer">
+                <div class="queryRecord"></div>
+
+                <div class="newDiagnosis"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Show data patient -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal-edit" tabindex="-1" aria-labelledby="modal-title-edit-row" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-title-edit-row">修改病例</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-md-12">
                             <div class="card">
-                                <div class="card-header fix-card">
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <h4 class="card-title"> 病人列表 </h4>
-                                        </div>
-                                        <div class="col-4 float-end">
-                                            <a href="/new_patient/" class="btn btn-primary float-end">新增患者</a>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table id="example2" class="display nowrap">
-                                            <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th>id</th>
-                                                    <th>编号</th>
-                                                    <th>姓名</th>
-                                                    <th>年龄</th>
-                                                    <th>性别</th>
-                                                    <th>操作</th>
+                                    <div class="basic-form">
 
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {#此处为访问数据库所得病例数据#}
-                                                {% for case in case_list %}
-                                                    <tr>
-                                                    <td></td>
-                                                    <td>{{ case.id }}</td>
-                                                    <td>{{ case.case_number }}</td>
-                                                    <td>{{ case.case_name }}</td>
-                                                    <td>{{ case.case_age }}</td>
-                                                    <td>{{ case.case_sex }}</td>
+                                        <form method="get" action="/update_patient/" enctype="multipart/form-data" id="update_table">
 
-                                                    <td>
-                                                        <a class='mr-4 vue'>
-                                                            <span class='fa fa-eye' aria-hidden='true'></span>
-                                                        </a>
-                                                        <a data-bs-toggle='modal' data-bs-target='#modal-edit' class='mr-4'>
-                                                            <span class='fas fa-pencil-alt'></span>
-                                                        </a>
-                                                        <a class='mr-4 delet'>
-                                                            <span class='fas fa-trash-alt'></span>
-                                                        </a>
-                                                    </td>
-                                                    </tr>
-                                                {% endfor %}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        ...
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
-                                        <button type="button" class="btn btn-primary">保存修改</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -239,228 +309,37 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- End section content -->
-
-
-
-
-    </div>
-
-
-    <!-- Show data patient -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <!-- <div > -->
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="myModalLabel"></h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                    <div class="insertHere"></div> <!--信息来源于此-->
-                </div>
-                <div class="modal-footer">
-                    <div class="queryRecord"></div>
-
-                    <div class="newDiagnosis"></div>
-
-                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button>
             </div>
         </div>
     </div>
-    <!-- End Show data patient -->
+</div>
+<!--End Modal -->
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="modal-edit" tabindex="-1" aria-labelledby="modal-title-edit-row" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modal-title-edit-row">Angelica Ramos</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="basic-form">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-xl-4">
-                                            <div class="form-group row widget-3">
-                                                <div class="col-lg-12">
-                                                    <div class="form-input">
-                                                        <label class="labeltest" for="file-ip-1">
-                                                            <span> 点击上传文件（或拖拽文件至此） </span>
-                                                        </label>
-                                                        <input type="file" id="file-ip-1" accept="image/*" onchange="showPreview(event);">
-{#                                                        <div class="preview">#}
-{#                                                            <img id="file-ip-1-preview" src="#" alt="img">#}
-{#                                                        </div>#}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4">
-                                            <div class="form-group row">
-                                                <div class="col-lg-12">
-                                                    <input type="text" class="form-control" placeholder="编号">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-lg-12">
-                                                    <input type="text" class="form-control" placeholder="姓名">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-lg-12">
-                                                    <input type="text" class="form-control" placeholder="年龄">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <div class="col-lg-12">
-                                                    <select class="form-control form-select">
-                                                        <option>性别</option>
-                                                        <option>男</option>
-                                                        <option>女</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-{#                                            <div class="form-group row">#}
-{#                                                <div class="col-lg-12">#}
-{#                                                    <input type="text" class="form-control" placeholder="姓">#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                            <div class="form-group row">#}
-{#                                                <div class="col-lg-12">#}
-{#                                                    <input type="text" class="form-control" placeholder="名">#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                            <div class="form-group row">#}
-{#                                                <div class="col-lg-12">#}
-{#                                                    <input type="email" class="form-control" placeholder="邮件">#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                            <div class="form-group row">#}
-{#                                                <div class="col-lg-12">#}
-{#                                                    <input type="text" class="form-control" placeholder="手机号码">#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                        <div class="col-xl-4">#}
-{#                                            <div class="form-group row">#}
-{#                                                <div class="col-lg-12">#}
-{#                                                    <div class="input-group">#}
-{#                                                        <input type="text" class="form-control" placeholder="出生日期">#}
-{#                                                    </div>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                            <div class="form-group row">#}
-{#                                                <div class="col-lg-12">#}
-{#                                                    <select class="form-control form-select">#}
-{#                                                        <option> 婚姻状态 </option>#}
-{#                                                        <option>已婚</option>#}
-{#                                                        <option>未婚</option>#}
-{#                                                    </select>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                            <div class="form-group row">#}
-{#                                                <div class="col-lg-12">#}
-{#                                                    <select class="form-control form-select">#}
-{#                                                        <option>性别</option>#}
-{#                                                        <option>男</option>#}
-{#                                                        <option>女</option>#}
-{#                                                    </select>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                            <div class="form-group row">#}
-{#                                                <div class="col-lg-12">#}
-{#                                                    <select class="form-control form-select">#}
-{#                                                        <option>血型</option>#}
-{#                                                        <option>A+</option>#}
-{#                                                        <option>A-</option>#}
-{#                                                        <option>B+</option>#}
-{#                                                        <option>B-</option>#}
-{#                                                        <option>O+</option>#}
-{#                                                        <option>O-</option>#}
-{#                                                        <option>AB+</option>#}
-{#                                                        <option>AB-</option>#}
-{#                                                    </select>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                    <div class="row">#}
-{#                                        <div class="col-xl-4"></div>#}
-{#                                        <div class="col-xl-4">#}
-{#                                            <div class="form-group row">#}
-{#                                                <div class="col-lg-12">#}
-{#                                                    <input type="text" class="form-control" placeholder="体重">#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                        <div class="col-xl-4">#}
-{#                                            <div class="form-group row">#}
-{#                                                <div class="col-lg-12">#}
-{#                                                    <input type="text" class="form-control" placeholder="身高">#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                    <div class="row">#}
-{#                                        <div class="col-xl-4">#}
-{#                                            <div class="form-group">#}
-{#                                                <div class="col-lg-12">#}
-{#                                                </div>#}
-{#                                                <textarea class="form-control" placeholder="地址" rows="4"></textarea>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                        <div class="col-xl-8">#}
-{#                                            <div class="form-group">#}
-{#                                                <textarea class="form-control" placeholder="病史" rows="4"></textarea>#}
-{#                                            </div>#}
-{#                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button>
-                    <button type="button" class="btn btn-primary">保存修改</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--End Modal -->
+<!-- JQuery v3.5.1 -->
+<script src="../static/plugins/jquery/jquery.min.js"></script>
 
+<!-- popper js -->
+<script src="../static/plugins/popper/popper.min.js"></script>
 
-    <!-- JQuery v3.5.1 -->
-    <script src="../static/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="../static/plugins/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- popper js -->
-    <script src="../static/plugins/popper/popper.min.js"></script>
+<!-- Moment -->
+<script src="../static/plugins/moment/moment.min.js"></script>
 
-    <!-- Bootstrap -->
-    <script src="../static/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- Date Range Picker -->
+<script src="../static/plugins/daterangepicker/daterangepicker.min.js"></script>
 
-    <!-- Moment -->
-    <script src="../static/plugins/moment/moment.min.js"></script>
+<!-- Datatable -->
+<script src="../static/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../static/js/init-tdatatable.js"></script>
 
-    <!-- Date Range Picker -->
-    <script src="../static/plugins/daterangepicker/daterangepicker.min.js"></script>
-
-    <!-- Datatable -->
-    <script src="../static/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="../static/js/init-tdatatable.js"></script>
-
-    <!-- Main Custom JQuery -->
-    <script src="../static/js/toggleFullScreen.js"></script>
-    <script src="../static/js/main.js"></script>
+<!-- Main Custom JQuery -->
+<script src="../static/js/toggleFullScreen.js"></script>
+<script src="../static/js/main.js"></script>
 
 </body>
 

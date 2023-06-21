@@ -5,23 +5,19 @@ from pathlib import Path
 def parse_opts():
     parser = argparse.ArgumentParser()
     parser.add_argument('--root_path',
-                        default=None,
+                        default="D:\\学习\\大创项目\\dc\\",
                         type=Path,
                         help='Root directory path')
     parser.add_argument('--video_path',
-                        default=None,
+                        default="D:\\学习\\大创项目\\dc\\video_path\\",
                         type=Path,
                         help='Directory path of videos')
     parser.add_argument('--annotation_path',
-                        default=None,
+                        default="D:\\学习\\大创项目\\dc\\annotation_path\\data.json",
                         type=Path,
                         help='Annotation file path')
-    parser.add_argument('--direct_index',
-                        default='10004',
-                        type=str,
-                        help='判断是否是直接用图片传输')
     parser.add_argument('--result_path',
-                        default=None,
+                        default="D:\\学习\\大创项目\\dc\\result_path\\",
                         type=Path,
                         help='Result directory path')
     parser.add_argument(
@@ -156,7 +152,7 @@ def parse_opts():
         help='Patience of LR scheduler. See documentation of ReduceLROnPlateau.'
     )
     parser.add_argument('--batch_size',
-                        default=16,#16#2
+                        default=1,#16#2
                         type=int,
                         help='Batch Size')
     parser.add_argument(
@@ -182,16 +178,16 @@ def parse_opts():
                         type=Path,
                         help='Save data (.pth) of previous training')
     parser.add_argument('--no_train',
-                        default=True,
+                        action='store_true',
                         help='If true, training is not performed.')
     parser.add_argument('--no_val',
-                        default=True,
+                        action='store_true',
                         help='If true, validation is not performed.')
     parser.add_argument('--inference',
-                        default=True,
+                        action='store_true',
                         help='If true, inference is performed.')
     parser.add_argument('--inference_subset',
-                        default='test',
+                        default='val',
                         type=str,
                         help='Used subset in inference (train | val | test)')
     parser.add_argument('--inference_stride',
@@ -294,7 +290,10 @@ def parse_opts():
                         default=-1,
                         type=int,
                         help='number of nodes for distributed training')
-
-    args = parser.parse_args(args=[])
+    parser.add_argument('runserver',
+                        default='runserver',
+                        type=str,
+                        help='runserver')
+    args = parser.parse_args()
 
     return args
