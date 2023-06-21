@@ -1,8 +1,5 @@
 # 项目简介
-
-## 项目成果
 在2022 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)（CCF B）主会发表会议论文一篇，原文见链接 https://ieeexplore.ieee.org/document/9995218 。
-
 开发了一套原型系统，可以供给相关配套设备医院使用，界面如下图。
 ![img.png](img.png)
 
@@ -22,7 +19,7 @@ app与Intelligent_analysis_of_fundus_OCTA_images目录是原型系统开发的�
 
 ## 项目主要技术
 
-为了实现将DR与AMD进行分类，并达到良好的效果，我们设计了TCAM-Resnet，该网络以
+为了实现将DR与AMD进行分类，并达到良好的效果，我们利用了TCAM-Resnet，该网络以
 ResNet为基础，加入了三维卷积注意力机制（TCAM），该注意力机制聚焦于视网膜血管信息，
 能够提取三维图像的血管权重信息。本研究中使用的数据集来自于Image Projection Network: 3D to 2D Image Segmentation in OCTA Images 原文见 https://ieeexplore.ieee.org/document/9085991 
 在这篇论文中，IPN投影网络本是将三维OCTA图片进行投影，获得二维血管图片。我们在研究中IPN投影网络进行改造
